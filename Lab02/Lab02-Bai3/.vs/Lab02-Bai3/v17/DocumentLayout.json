@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab02\\Lab02-Bai3\\",
+  "WorkspaceRootPath": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab02\\lab02-bai3\\lab02-bai3\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|solutionrelative:lab02-bai3\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|c:\\users\\cua\\desktop\\learning_net107\\lab02\\lab02-bai3\\lab02-bai3\\wwwroot\\signup.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|solutionrelative:lab02-bai3\\wwwroot\\signup.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab02\\lab02-bai3\\lab02-bai3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|c:\\users\\cua\\desktop\\learning_net107\\lab02\\lab02-bai3\\lab02-bai3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|solutionrelative:lab02-bai3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|c:\\users\\cua\\desktop\\learning_net107\\lab02\\lab02-bai3\\lab02-bai3\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{26D9C4D8-917E-4FA5-B95A-54B0FED47FAF}|Lab02-Bai3\\Lab02-Bai3.csproj|solutionrelative:lab02-bai3\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,10 +35,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SignUp.html",
+              "DocumentMoniker": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\SignUp.html",
+              "RelativeDocumentMoniker": "Lab02-Bai3\\wwwroot\\SignUp.html",
+              "ToolTip": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\SignUp.html",
+              "RelativeToolTip": "Lab02-Bai3\\wwwroot\\SignUp.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-11T04:01:59.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "style.css",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\css\\style.css",
+              "DocumentMoniker": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "Lab02-Bai3\\wwwroot\\css\\style.css",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\wwwroot\\css\\style.css",
               "RelativeToolTip": "Lab02-Bai3\\wwwroot\\css\\style.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -45,11 +62,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\Program.cs",
               "RelativeDocumentMoniker": "Lab02-Bai3\\Program.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\Program.cs",
+              "ToolTip": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab02\\Lab02-Bai3\\Lab02-Bai3\\Program.cs",
               "RelativeToolTip": "Lab02-Bai3\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T00:36:41.869Z",
               "EditorCaption": ""
