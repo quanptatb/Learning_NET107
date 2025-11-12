@@ -1,1 +1,33 @@
-﻿
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.product-card {
+    transition: transform .2s, box-shadow .2s;
+}
+
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+.discount-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #e31e26;
+    color: white;
+    font-size: .9rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.card-title {
+    min-height: 2.2em;
+}
+
+.stars i {
+    font-size: .9rem;
+}
