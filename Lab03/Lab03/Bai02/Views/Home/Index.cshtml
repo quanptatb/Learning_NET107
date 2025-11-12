@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Bai02.Models.Product>
+
+<div class="row gy-4">
+    @foreach (var p in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-12">
+            <div class="card product-card border-0 shadow-sm position-relative">
+                <span class="discount-tag">Giảm @p.Discount.ToString("N0")đ</span>
+                <img src="@p.Image" class="card-img-top p-3" alt="@p.Name" />
+                <div class="card-body">
+                    <h6 class="card-title fw-bold">@p.Name @p.Capacity</h6>
+                    <p class="text-danger mb-1 fw-semibold">Chỉ từ @p.Installment</p>
+
+                    <div class="stars text-warning small mb-2">
+                        @{
+                            var full = (int)p.Rating;
+                            var half = p.Rating - full >= 0.5;
+                        }
+                        @for (int i = 0; i < full; i++)
+                        {
+                            <i class="bi bi-star-fill"></i>
+                        }
+                        @if (half)
+                        {
+                            <i class="bi bi-star-half"></i>
+                        }
+                        @for (int i = full + (half ? 1 : 0); i < 5; i++)
+                        {
+                            <i class="bi bi-star"></i>
+                        }
+                        <span class="text-muted">(@p.Reviews đánh giá)</span>
+                    </div>
+
+                    <div class="mb-2">
+                        <span class="text-decoration-line-through text-muted">@p.Price.ToString("N0")đ</span><br />
+                        <span class="fw-bold fs-6">@((p.Price - p.Discount).ToString("N0"))đ</span>
+                    </div>
+
+                    <ul class="list-unstyled small mb-0">
+                        <li><b>Màn hình:</b> @p.Screen</li>
+                        <li><b>Camera:</b> @p.Camera</li>
+                        <li><b>Pin:</b> @p.Battery</li>
+                        <li><b>RAM:</b> @p.Ram</li>
+                        <li><b>CPU:</b> @p.Cpu</li>
+                        <li><b>HĐH:</b> @p.Os</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>

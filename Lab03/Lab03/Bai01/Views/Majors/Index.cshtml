@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Bai01.Models.Major>
+@{
+    ViewData["Title"] = "Công nghệ thông tin";
+}
+
+<section class="majors">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="grid">
+        @foreach (var item in Model)
+        {
+            <article class="card">
+                <div class="thumb">
+                    <img src="@item.Image_string" alt="@item.Subname_string" />
+                </div>
+                <div class="badge">
+                    @item.Subname_string
+                </div>
+            </article>
+        }
+    </div>
+</section>
