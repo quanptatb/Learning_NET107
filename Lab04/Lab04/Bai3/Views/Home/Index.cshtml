@@ -1,0 +1,29 @@
+﻿@using Bai3.Models
+@{
+    // Ép kiểu danh sách Employee từ ViewBag
+    var employees = ViewBag.employee as List<Employee>;
+}
+
+<h3 style="color:rgb(11,77,163);">Employee Fpoly Education Data</h3>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in employees)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>

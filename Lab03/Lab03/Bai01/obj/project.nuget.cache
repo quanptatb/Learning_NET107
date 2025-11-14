@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n+m9JxaAoDc=",
+  "dgSpecHash": "b4chFg50DgE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
+  "projectFilePath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cua\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Cua\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
