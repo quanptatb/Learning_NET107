@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai3\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|solutionrelative:bai3\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|solutionrelative:bai3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai3\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA86F7EA-7532-44C3-B31E-7856331729F8}|Bai3\\Bai3.csproj|solutionrelative:bai3\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Bai3\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Bai3\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-14T23:50:27.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Bai3\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Bai3\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAkwA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T23:49:23.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Bai3\\Models\\Employee.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai3\\Models\\Employee.cs",
+              "RelativeToolTip": "Bai3\\Models\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T23:48:32.714Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

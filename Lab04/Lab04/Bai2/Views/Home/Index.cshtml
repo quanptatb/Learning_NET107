@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = ViewData["Title"];
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <h1>@ViewData["Header"]</h1>
+
+    @{
+        // Ép kiểu từ object trong ViewData về đúng kiểu Student
+        var student = ViewData["StudentModel"]
+        as Bai2.Models.StudentModel;  // hoặc YourProject.Models.Student
+    }
+
+    <div>
+        StudentId : @student.StudentId
+    </div>
+    <div>
+        Name : @student.Name
+    </div>
+    <div>
+        Branch : @student.Branch
+    </div>
+    <div>
+        Section : @student.Section
+    </div>
+</body>
+</html>

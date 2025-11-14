@@ -5572,11 +5572,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
+      "projectUniqueName": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
       "projectName": "Bai01",
-      "projectPath": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
+      "projectPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab03\\Lab03\\Bai01\\Bai01.csproj",
       "packagesPath": "C:\\Users\\Cua\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cua\\Desktop\\Learning_NET107\\Lab03\\Lab03\\Bai01\\obj\\",
+      "outputPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab03\\Lab03\\Bai01\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
