@@ -1,31 +1,114 @@
-html {
-  font-size: 14px;
+.bannertrencung {
+    background-size: cover;
+    height: 50px;
+    position: relative;
+    background-color: #007bff;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-body {
-  margin-bottom: 60px;
+    .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    .search-bar input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .search-bar button {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+        .search-bar button img {
+            width: 20px;
+            height: 20px;
+        }
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    .user-actions a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+.location {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
 }
+
+    .location img {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+    }
+
+.header-nav {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+}
+
+    .header-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+        .header-nav ul li {
+            display: inline;
+        }
+
+            .header-nav ul li a {
+                text-decoration: none;
+                color: #333;
+                font-size: 14px;
+            }
+
+                .header-nav ul li a:hover {
+                    color: #007bff;
+                }

@@ -10,6 +10,21 @@ namespace ASM.Controllers
         {
             return View();
         }
+        public ActionResult Employee()
+        {
+            ViewBag.Title = "Employee";
+            return View();
+        }
+        public ActionResult Order()
+        {
+            ViewBag.Title = "Order";
+            return View();
+        }
+        public ActionResult Product()
+        {
+            ViewBag.Title = "Product";
+            return View();
+        }
 
         public IActionResult Privacy()
         {
