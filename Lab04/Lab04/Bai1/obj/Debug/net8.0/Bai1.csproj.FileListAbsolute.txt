@@ -32,3 +32,4 @@ D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab04\Lab04\Bai1\obj\Debug\net8.0\refi
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab04\Lab04\Bai1\obj\Debug\net8.0\Bai1.pdb
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab04\Lab04\Bai1\obj\Debug\net8.0\Bai1.genruntimeconfig.cache
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab04\Lab04\Bai1\obj\Debug\net8.0\ref\Bai1.dll
+D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab04\Lab04\Bai1\obj\Debug\net8.0\swae.build.ex.cache

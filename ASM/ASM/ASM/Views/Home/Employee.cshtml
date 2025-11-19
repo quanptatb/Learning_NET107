@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Quản lý Nhân viên";
+}
+
+<div class="alert alert-info">
+    Chức năng chỉ dành cho Quản lý.
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã NV</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Chức vụ</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NV001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>a@example.com</td>
+                    <td>Nhân viên</td>
+                    <td><span class="badge bg-success">Hoạt động</span></td>
+                    <td>
+                        <a href="#" class="btn btn-info btn-sm text-white">Sửa</a>
+                        <a href="#" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
