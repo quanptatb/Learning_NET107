@@ -1,7 +1,32 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\models\\homemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\models\\homemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\views\\home\\tokyo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\views\\home\\tokyo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\views\\home\\london.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\views\\home\\london.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab04\\lab04\\bai1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1509E42-C453-4691-81A6-671146D13D5B}|Bai1\\Bai1.csproj|solutionrelative:bai1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +43,84 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Tokyo.cshtml",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Home\\Tokyo.cshtml",
+              "RelativeDocumentMoniker": "Bai1\\Views\\Home\\Tokyo.cshtml",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Home\\Tokyo.cshtml",
+              "RelativeToolTip": "Bai1\\Views\\Home\\Tokyo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T19:35:43.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Bai1\\Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Bai1\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:26:38.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeModel.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Models\\HomeModel.cs",
+              "RelativeDocumentMoniker": "Bai1\\Models\\HomeModel.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Models\\HomeModel.cs",
+              "RelativeToolTip": "Bai1\\Models\\HomeModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:26:37.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Bai1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Bai1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T19:25:54.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "London.cshtml",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Home\\London.cshtml",
+              "RelativeDocumentMoniker": "Bai1\\Views\\Home\\London.cshtml",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Views\\Home\\London.cshtml",
+              "RelativeToolTip": "Bai1\\Views\\Home\\London.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T19:25:52.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Bai1\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab04\\Lab04\\Bai1\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Bai1\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T19:25:39.848Z",
+              "EditorCaption": ""
             }
           ]
         }
