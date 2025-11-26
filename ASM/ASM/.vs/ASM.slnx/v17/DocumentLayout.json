@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|e:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|e:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|e:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\appsettings.json",
+              "RelativeDocumentMoniker": "ASM\\appsettings.json",
+              "ToolTip": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\appsettings.json",
+              "RelativeToolTip": "ASM\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-21T02:32:56.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Program.cs",
+              "RelativeDocumentMoniker": "ASM\\Program.cs",
+              "ToolTip": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Program.cs",
+              "RelativeToolTip": "ASM\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAiwC8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T02:25:03.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ASM\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ASM\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T02:24:44.128Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

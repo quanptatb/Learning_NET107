@@ -1,0 +1,67 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Lưới 4 cột, co giãn */
+.majors .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Thẻ card */
+.majors .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    background: #fff;
+}
+
+/* Ảnh & chuyển đen trắng nhẹ */
+.majors .thumb img {
+    width: 100%;
+    display: block;
+    filter: grayscale(30%);
+    transition: transform .4s ease;
+}
+
+.majors .card:hover .thumb img {
+    transform: scale(1.05);
+}
+
+/* Nhãn cam giống banner trong hình mẫu */
+.majors .badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    background: #ff8c00; /* cam */
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    box-shadow: 0 6px 14px rgba(255,140,0,.35);
+}

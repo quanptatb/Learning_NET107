@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Bai02.Models.MajorModel>
+
+<section class="majors">
+    <h1>@Model.FirstOrDefault()?.Title_string</h1>
+
+    <div class="grid">
+        @foreach (var item in Model)
+        {
+            <article class="card">
+                <div class="thumb">
+                    <img src="@item.Image_string" alt="@item.Subname_string" asp-append-version="true" />
+                </div>
+                <div class="badge">
+                    @item.Subname_string
+                </div>
+            </article>
+        }
+    </div>
+</section>
