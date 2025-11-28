@@ -65,6 +65,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\css\site.css
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\favicon.ico
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\js\site.js
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -126,4 +127,3 @@ D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\lib\jquery\d
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\lib\jquery\LICENSE.txt
-D:\Work\Ky7\Block2\NET107\Learning_NET107\Lab05\Lab05\Bai01\wwwroot\css\site.css
