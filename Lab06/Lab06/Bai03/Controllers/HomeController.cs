@@ -10,8 +10,8 @@ namespace Bai03.Controllers
     {
         private static List<ProductModel> products = new List<ProductModel>()
         {
-            new ProductModel { Name = "Men Shoes", Price = 99, Quantity = 100},
-            new ProductModel { Name = "Women Shoes", Price = 199, Quantity = 200}
+            new ProductModel { Name = "Men Shoes", Price = 99, Quantity = 100, ID = 1},
+            new ProductModel { Name = "Women Shoes", Price = 199, Quantity = 200, ID = 2}
         };
         [HttpGet("~/")]
         [HttpGet("")]
@@ -31,11 +31,9 @@ namespace Bai03.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProductModel model)
         {
-            if (ModelState.IsValid)
-            {
-                products.Add(model);
-                return RedirectToAction("Index");
-            }
+            var id = products.Count > 0 ? products.Max(p => p.ID) + 1 : 1;  
+            model.ID = id;
+            products.Add(model);
             return View(model);
         }
 
@@ -84,19 +82,13 @@ namespace Bai03.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        [HttpGet("Details/{name:regex(^[^/]+$)}")]
-        public IActionResult Details(string name)
+        //Details
+        [HttpGet("Details/{id:regex()int")]
+        public IActionResult Details(int id)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                return BadRequest("Product name is required.");
-
-            var product = products.FirstOrDefault(p =>
-                p.Name.Equals(name.Trim(), StringComparison.OrdinalIgnoreCase));
-
-            if (product == null)
-                return NotFound();
-
+            var product = products.FirstOrDefault(p => p.ID == id);
+            if (product == null) return NotFound();
+            //không phải số 
             return View(product);
         }
     }

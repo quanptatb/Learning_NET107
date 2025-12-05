@@ -42,7 +42,7 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Customer}/{action=Index}/{id?}");
 // .WithStaticAssets(); // Chỉ dùng nếu dùng MapStaticAssets
 
 app.Run();

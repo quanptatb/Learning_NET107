@@ -1,570 +1,404 @@
 ﻿USE master
 GO
+IF DB_ID('ASM_Net107') IS NOT NULL DROP DATABASE ASM_Net107
+GO
 CREATE DATABASE ASM_Net107
 GO
 USE ASM_Net107
 GO
 
--- 1. Nhân viên
-CREATE TABLE NhanVien (
-    MaNV varchar(10) PRIMARY KEY,
-    TenNV nvarchar(50) NOT NULL,
+--------------------------------------------------------------------
+-- 1. Employees
+--------------------------------------------------------------------
+CREATE TABLE Employees (
+    EmployeeID varchar(10) PRIMARY KEY,
+    FullName nvarchar(50) NOT NULL,
     Email varchar(100) NOT NULL,
-    SDT varchar(15),
-    TenDangNhap varchar(20) NOT NULL,
-    MatKhau varchar(255) NOT NULL,  -- phải hash khi dùng thật
-    ChucVu nvarchar(20) DEFAULT N'Nhân viên',
-    NgayTaoTK date DEFAULT GETDATE(),
-    TrangThai bit DEFAULT 1,
-    CONSTRAINT UK_NhanVien_Email UNIQUE(Email),
-    CONSTRAINT UK_NhanVien_TenDangNhap UNIQUE(TenDangNhap),
-    CONSTRAINT CK_NhanVien_SDT CHECK (SDT LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]%' AND LEN(SDT) IN (10,11))
+    Phone varchar(15),
+    Username varchar(20) NOT NULL,
+    PasswordHash varchar(255) NOT NULL,      -- SHA-256 hash in production
+    Role nvarchar(20) DEFAULT N'Staff',
+    CreatedDate date DEFAULT GETDATE(),
+    IsActive bit DEFAULT 1,
+    CONSTRAINT UK_Employees_Email UNIQUE(Email),
+    CONSTRAINT UK_Employees_Username UNIQUE(Username),
+    CONSTRAINT CK_Employees_Phone CHECK (Phone LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]%' 
+                                        AND LEN(Phone) IN (10,11))
 );
 
--- 2. Sản phẩm
-CREATE TABLE SanPham (
-    MaSP varchar(10) PRIMARY KEY,
-    TenSP nvarchar(100) NOT NULL,
-    DonGia decimal(18,2) NOT NULL CHECK (DonGia >= 0),
-    SoLuongTon int NOT NULL DEFAULT 0 CHECK (SoLuongTon >= 0)
+--------------------------------------------------------------------
+-- 2. Products
+--------------------------------------------------------------------
+CREATE TABLE Products (
+    ProductID varchar(10) PRIMARY KEY,
+    ProductName nvarchar(100) NOT NULL,
+    UnitPrice decimal(18,2) NOT NULL CHECK (UnitPrice >= 0),
+    StockQuantity int NOT NULL DEFAULT 0 CHECK (StockQuantity >= 0)
 );
 
--- 3. Khách hàng
-CREATE TABLE KhachHang (
-    MaKH varchar(10) PRIMARY KEY,
-    TenKH nvarchar(50) NOT NULL,
-    SDT varchar(15) NOT NULL,
-    NgayTaoTK date DEFAULT GETDATE(),
-    CONSTRAINT UK_KhachHang_SDT UNIQUE(SDT)
+--------------------------------------------------------------------
+-- 3. Customers
+--------------------------------------------------------------------
+CREATE TABLE Customers (
+    CustomerID varchar(10) PRIMARY KEY,
+    CustomerName nvarchar(50) NOT NULL,
+    Phone varchar(15) NOT NULL,
+    CreatedDate date DEFAULT GETDATE(),
+    CONSTRAINT UK_Customers_Phone UNIQUE(Phone)
 );
 
--- 4. Phiếu bán hàng
-CREATE TABLE PhieuBanHang (
-    MaPBH varchar(10) PRIMARY KEY,
-    MaKH varchar(10) NOT NULL,
-    MaNV varchar(10) NOT NULL,
-    TrangThai bit default 0,           -- 1: đã thanh toán, 0: đang xử lý/hủy
-    NgayTao date DEFAULT GETDATE(),
-    TongTien decimal(18,2) NULL,       -- có thể tính bằng trigger hoặc view
-    CONSTRAINT FK_PhieuBanHang_KhachHang FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
-    CONSTRAINT FK_PhieuBanHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
+--------------------------------------------------------------------
+-- 4. Sales Invoices (Orders)
+--------------------------------------------------------------------
+CREATE TABLE SalesInvoices (
+    InvoiceID varchar(10) PRIMARY KEY,
+    CustomerID varchar(10) NOT NULL,
+    EmployeeID varchar(10) NOT NULL,
+    Status bit DEFAULT 0,               -- 0 = Pending, 1 = Paid
+    InvoiceDate date DEFAULT GETDATE(),
+    TotalAmount decimal(18,2) NULL,
+    CONSTRAINT FK_SalesInvoices_Customers FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    CONSTRAINT FK_SalesInvoices_Employees FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
 );
 
--- 5. Chi tiết phiếu bán
-CREATE TABLE ChiTietPhieuBanHang (
-    MaCTPBH varchar(10) PRIMARY KEY,
-    MaPBH varchar(10) NOT NULL,
-    MaSP varchar(10) NOT NULL,
-    DonGia decimal(18,2) NOT NULL,
-    SoLuongBan int NOT NULL CHECK (SoLuongBan > 0),
-    CONSTRAINT FK_ChiTietPBH_Phieu FOREIGN KEY (MaPBH) REFERENCES PhieuBanHang(MaPBH) ON DELETE CASCADE,
-    CONSTRAINT FK_ChiTietPBH_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+--------------------------------------------------------------------
+-- 5. Sales Invoice Details
+--------------------------------------------------------------------
+CREATE TABLE SalesInvoiceDetails (
+    DetailID varchar(10) PRIMARY KEY,
+    InvoiceID varchar(10) NOT NULL,
+    ProductID varchar(10) NOT NULL,
+    UnitPrice decimal(18,2) NOT NULL,
+    Quantity int NOT NULL CHECK (Quantity > 0),
+    CONSTRAINT FK_SalesDetails_Invoice FOREIGN KEY (InvoiceID) REFERENCES SalesInvoices(InvoiceID) ON DELETE CASCADE,
+    CONSTRAINT FK_SalesDetails_Product FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
--- 6. Nhà cung cấp
-CREATE TABLE NhaCungCap (
-    MaNCC varchar(10) PRIMARY KEY,
-    TenNCC nvarchar(100) NOT NULL,
+--------------------------------------------------------------------
+-- 6. Suppliers
+--------------------------------------------------------------------
+CREATE TABLE Suppliers (
+    SupplierID varchar(10) PRIMARY KEY,
+    SupplierName nvarchar(100) NOT NULL,
     Email varchar(100),
-    SDT varchar(15),
-    NgayTaoTK date DEFAULT GETDATE(),
-    TrangThai bit DEFAULT 1,
-    CONSTRAINT UK_NhaCungCap_Email UNIQUE(Email)
+    Phone varchar(15),
+    CreatedDate date DEFAULT GETDATE(),
+    IsActive bit DEFAULT 1,
+    CONSTRAINT UK_Suppliers_Email UNIQUE(Email)
 );
 
--- 7. Phiếu nhập
-CREATE TABLE PhieuNhap (
-    MaPN varchar(10) PRIMARY KEY,
-    MaNV varchar(10) NOT NULL,
-    MaNCC varchar(10) NOT NULL,
-    NgayTao date DEFAULT GETDATE(),
-    CONSTRAINT FK_PhieuNhap_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
-    CONSTRAINT FK_PhieuNhap_NhaCungCap FOREIGN KEY (MaNCC) REFERENCES NhaCungCap(MaNCC)
+--------------------------------------------------------------------
+-- 7. Purchase Invoices
+--------------------------------------------------------------------
+CREATE TABLE PurchaseInvoices (
+    PurchaseID varchar(10) PRIMARY KEY,
+    EmployeeID varchar(10) NOT NULL,
+    SupplierID varchar(10) NOT NULL,
+    PurchaseDate date DEFAULT GETDATE(),
+    CONSTRAINT FK_Purchase_Employees FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    CONSTRAINT FK_Purchase_Suppliers FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
 );
 
--- 8. Chi tiết phiếu nhập
-CREATE TABLE ChiTietPhieuNhap (
-    MaCTPN varchar(10) PRIMARY KEY,
-    MaPN varchar(10) NOT NULL,
-    MaSP varchar(10) NOT NULL,
-    SoluongNhap int NOT NULL CHECK (SoluongNhap > 0),
-    DonGiaNhap decimal(18,2) NOT NULL CHECK (DonGiaNhap >= 0),
-    CONSTRAINT FK_ChiTietPN_Phieu FOREIGN KEY (MaPN) REFERENCES PhieuNhap(MaPN) ON DELETE CASCADE,
-    CONSTRAINT FK_ChiTietPN_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+--------------------------------------------------------------------
+-- 8. Purchase Invoice Details
+--------------------------------------------------------------------
+CREATE TABLE PurchaseInvoiceDetails (
+    PurchaseDetailID varchar(10) PRIMARY KEY,
+    PurchaseID varchar(10) NOT NULL,
+    ProductID varchar(10) NOT NULL,
+    Quantity int NOT NULL CHECK (Quantity > 0),
+    UnitPrice decimal(18,2) NOT NULL CHECK (UnitPrice >= 0),
+    CONSTRAINT FK_PurchaseDetails_Purchase FOREIGN KEY (PurchaseID) REFERENCES PurchaseInvoices(PurchaseID) ON DELETE CASCADE,
+    CONSTRAINT FK_PurchaseDetails_Product FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
--- Tạo một số chỉ mục cần thiết
-CREATE INDEX IX_SanPham_TenSP ON SanPham(TenSP);
-CREATE INDEX IX_KhachHang_SDT ON KhachHang(SDT);
-CREATE INDEX IX_PhieuBanHang_NgayTao ON PhieuBanHang(NgayTao);
-go
+--------------------------------------------------------------------
+-- Indexes
+--------------------------------------------------------------------
+CREATE INDEX IX_Products_ProductName ON Products(ProductName);
+CREATE INDEX IX_Customers_Phone ON Customers(Phone);
+CREATE INDEX IX_SalesInvoices_InvoiceDate ON SalesInvoices(InvoiceDate);
+GO
 
-CREATE OR ALTER TRIGGER trg_NhapKho_Insert
-ON ChiTietPhieuNhap
-AFTER INSERT
-AS
+--------------------------------------------------------------------
+-- TRIGGERS: PURCHASE → STOCK IN
+--------------------------------------------------------------------
+CREATE OR ALTER TRIGGER trg_Purchase_Insert
+ON PurchaseInvoiceDetails AFTER INSERT AS
 BEGIN
     SET NOCOUNT ON;
-
-    MERGE SanPham AS t
-    USING (
-        SELECT MaSP, SUM(SoLuongNhap) AS SL
-       	FROM inserted
-        GROUP BY MaSP
-    ) AS i ON t.MaSP = i.MaSP
-    WHEN MATCHED THEN
-        UPDATE SET SoLuongTon = SoLuongTon + i.SL
-    WHEN NOT MATCHED THEN
-        INSERT (MaSP, SoLuongTon) VALUES (i.MaSP, i.SL);
+    MERGE Products AS t
+    USING (SELECT ProductID, SUM(Quantity) AS Qty FROM inserted GROUP BY ProductID) AS i
+        ON t.ProductID = i.ProductID
+    WHEN MATCHED THEN UPDATE SET StockQuantity = StockQuantity + i.Qty
+    WHEN NOT MATCHED THEN INSERT (ProductID, StockQuantity) VALUES (i.ProductID, i.Qty);
 END
+GO
 
-go
-
-CREATE OR ALTER TRIGGER trg_NhapKho_Update
-ON ChiTietPhieuNhap
-AFTER UPDATE
-AS
+CREATE OR ALTER TRIGGER trg_Purchase_Update
+ON PurchaseInvoiceDetails AFTER UPDATE AS
 BEGIN
     SET NOCOUNT ON;
+    IF NOT (UPDATE(Quantity) OR UPDATE(ProductID)) RETURN;
 
-    -- Chỉ chạy khi cột SoLuongNhap hoặc MaSP thực sự bị thay đổi
-    IF NOT (UPDATE(SoLuongNhap) OR UPDATE(MaSP))
+    MERGE Products AS t USING (SELECT ProductID, SUM(Quantity) AS Qty FROM deleted GROUP BY ProductID) AS d
+        ON t.ProductID = d.ProductID
+    WHEN MATCHED THEN UPDATE SET StockQuantity = StockQuantity - d.Qty;
+
+    MERGE Products AS t USING (SELECT ProductID, SUM(Quantity) AS Qty FROM inserted GROUP BY ProductID) AS i
+        ON t.ProductID = i.ProductID
+    WHEN MATCHED THEN UPDATE SET StockQuantity = StockQuantity + i.Qty
+    WHEN NOT MATCHED THEN INSERT (ProductID, StockQuantity) VALUES (i.ProductID, i.Qty);
+END
+GO
+
+CREATE OR ALTER TRIGGER trg_Purchase_Delete
+ON PurchaseInvoiceDetails AFTER DELETE AS
+BEGIN
+    SET NOCOUNT ON;
+    MERGE Products AS t USING (SELECT ProductID, SUM(Quantity) AS Qty FROM deleted GROUP BY ProductID) AS d
+        ON t.ProductID = d.ProductID
+    WHEN MATCHED THEN UPDATE SET StockQuantity = StockQuantity - d.Qty;
+END
+GO
+
+--------------------------------------------------------------------
+-- TRIGGERS: SALES → STOCK OUT
+--------------------------------------------------------------------
+-- Insert detail (only subtract stock if invoice is already Paid)
+CREATE OR ALTER TRIGGER trg_SalesDetail_Insert
+ON SalesInvoiceDetails AFTER INSERT AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 FROM SalesInvoices si JOIN inserted i ON si.InvoiceID = i.InvoiceID WHERE si.Status = 0)
         RETURN;
 
-    -- Bước 1: Trừ đi số lượng cũ (deleted)
-    MERGE SanPham AS t
-    USING (
-        SELECT MaSP, SUM(SoLuongNhap) AS SL
-        FROM deleted
-        GROUP BY MaSP
-    ) AS d ON t.MaSP = d.MaSP
-    WHEN MATCHED THEN
-        UPDATE SET SoLuongTon = SoLuongTon - d.SL;
-
-    -- Bước 2: Cộng thêm số lượng mới (inserted)
-    MERGE SanPham AS t
-    USING (
-        SELECT MaSP, SUM(SoLuongNhap) AS SL
-        FROM inserted
-        GROUP BY MaSP
-    ) AS i ON t.MaSP = i.MaSP
-    WHEN MATCHED THEN
-        UPDATE SET SoLuongTon = SoLuongTon + i.SL
-    WHEN NOT MATCHED THEN
-        INSERT (MaSP, SoLuongTon) VALUES (i.MaSP, i.SL);
-END
-
-go
-
-CREATE OR ALTER TRIGGER trg_NhapKho_Delete
-ON ChiTietPhieuNhap
-AFTER DELETE
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    MERGE SanPham AS t
-    USING (
-        SELECT MaSP, SUM(SoLuongNhap) AS SL
-        FROM deleted
-        GROUP BY MaSP
-    ) AS d ON t.MaSP = d.MaSP
-    WHEN MATCHED THEN
-        UPDATE SET SoLuongTon = SoLuongTon - d.SL;
-
-    -- (Tùy chính sách) Nếu số lượng về 0 thì có thể xóa bản ghi luôn
-    -- DELETE FROM SanPham WHERE SoLuongTon <= 0;
-END
-go
-
--- ============================================================
--- 1. TRIGGER INSERT CHI TIẾT BÁN HÀNG (đã đúng, chỉ sửa nhỏ cho chắc)
--- ============================================================
-CREATE OR ALTER TRIGGER trg_BanHang_Insert
-ON ChiTietPhieuBanHang
-AFTER INSERT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Nếu có ít nhất 1 phiếu chưa thanh toán → không trừ tồn
-    IF EXISTS (SELECT 1 FROM PhieuBanHang p 
-               JOIN inserted i ON p.MaPBH = i.MaPBH 
-               WHERE p.TrangThai = 0)
-        RETURN;
-
-    -- Kiểm tra tồn kho
-    IF EXISTS (
-        SELECT 1
-        FROM inserted i
-        JOIN SanPham sp ON i.MaSP = sp.MaSP
-        GROUP BY sp.MaSP, sp.SoLuongTon
-        HAVING sp.SoLuongTon < SUM(i.SoLuongBan)
-    )
+    IF EXISTS (SELECT 1 FROM inserted i JOIN Products p ON i.ProductID = p.ProductID
+               GROUP BY p.ProductID, p.StockQuantity HAVING p.StockQuantity < SUM(i.Quantity))
     BEGIN
-        RAISERROR(N'Số lượng bán vượt quá tồn kho hiện có!', 16, 1);
-        ROLLBACK;
-        RETURN;
+        RAISERROR(N'Not enough stock for one or more products!', 16, 1);
+        ROLLBACK; RETURN;
     END
 
-    -- Trừ tồn kho
-    UPDATE SanPham
-    SET SoLuongTon = SoLuongTon - i.TongBan
-    FROM SanPham sp
-    JOIN (
-        SELECT MaSP, SUM(SoLuongBan) AS TongBan
-        FROM inserted
-        GROUP BY MaSP
-    ) i ON sp.MaSP = i.MaSP;
+    UPDATE p SET StockQuantity = StockQuantity - i.TotalQty
+    FROM Products p
+    JOIN (SELECT ProductID, SUM(Quantity) AS TotalQty FROM inserted GROUP BY ProductID) i
+        ON p.ProductID = i.ProductID;
 END
 GO
 
-
--- ============================================================
--- 2. TRIGGER UPDATE CHI TIẾT BÁN HÀNG (đã sửa hoàn toàn lỗi MaPBH)
--- ============================================================
-CREATE OR ALTER TRIGGER trg_BanHang_Update
-ON ChiTietPhieuBanHang
-AFTER UPDATE
-AS
+-- Update detail
+CREATE OR ALTER TRIGGER trg_SalesDetail_Update
+ON SalesInvoiceDetails AFTER UPDATE AS
 BEGIN
     SET NOCOUNT ON;
+    IF NOT (UPDATE(Quantity) OR UPDATE(ProductID)) RETURN;
 
-    -- Nếu không thay đổi số lượng hoặc mã sản phẩm → bỏ qua
-    IF NOT (UPDATE(SoLuongBan) OR UPDATE(MaSP))
-        RETURN;
+    ;WITH Affected AS (SELECT DISTINCT InvoiceID FROM inserted UNION SELECT DISTINCT InvoiceID FROM deleted),
+          Paid AS (SELECT a.InvoiceID FROM Affected a JOIN SalesInvoices si ON si.InvoiceID = a.InvoiceID WHERE si.Status = 1)
 
-    -- Lấy danh sách các phiếu bị ảnh hưởng + trạng thái thanh toán
-    ;WITH Affected AS (
-        SELECT DISTINCT MaPBH 
-        FROM inserted
-        UNION
-        SELECT DISTINCT MaPBH 
-        FROM deleted
-    ),
-    PaidOrders AS (
-        SELECT a.MaPBH
-        FROM Affected a
-        JOIN PhieuBanHang p ON p.MaPBH = a.MaPBH
-        WHERE p.TrangThai = 1
-    )
+    -- Return old quantity
+    UPDATE p SET StockQuantity = StockQuantity + d.Qty
+    FROM Products p
+    JOIN (SELECT ProductID, SUM(Quantity) AS Qty FROM deleted d
+          WHERE EXISTS (SELECT 1 FROM Paid pi WHERE pi.InvoiceID = d.InvoiceID)
+          GROUP BY ProductID) d ON p.ProductID = d.ProductID;
 
-    -- 1. Cộng lại số lượng cũ (deleted) nếu phiếu đã thanh toán
-    UPDATE sp
-    SET SoLuongTon = sp.SoLuongTon + d.S
-    FROM SanPham sp
-    JOIN (
-        SELECT MaSP, SUM(SoLuongBan) AS S
-        FROM deleted d
-        WHERE EXISTS (SELECT 1 FROM PaidOrders po WHERE po.MaPBH = d.MaPBH)
-        GROUP BY MaSP
-    ) d ON sp.MaSP = d.MaSP;
-
-    -- 2. Kiểm tra tồn kho trước khi trừ số lượng mới
-    IF EXISTS (
-        SELECT 1
-        FROM inserted i
-        JOIN SanPham sp ON i.MaSP = sp.MaSP
-        WHERE EXISTS (SELECT 1 FROM PaidOrders po WHERE po.MaPBH = i.MaPBH)
-        GROUP BY i.MaSP, sp.SoLuongTon
-        HAVING sp.SoLuongTon < SUM(i.SoLuongBan)
-    )
+    -- Check stock for new quantity
+    IF EXISTS (SELECT 1 FROM inserted i JOIN Products p ON i.ProductID = p.ProductID
+               WHERE EXISTS (SELECT 1 FROM Paid pi WHERE pi.InvoiceID = i.InvoiceID)
+               GROUP BY i.ProductID, p.StockQuantity HAVING p.StockQuantity < SUM(i.Quantity))
     BEGIN
-        RAISERROR(N'Số lượng bán sau khi sửa vượt quá tồn kho!', 16, 1);
-        ROLLBACK;
-        RETURN;
+        RAISERROR(N'Not enough stock after update!', 16, 1);
+        ROLLBACK; RETURN;
     END
 
-    -- 3. Trừ số lượng mới (inserted) nếu phiếu đã thanh toán
-    UPDATE sp
-    SET SoLuongTon = sp.SoLuongTon - i.S
-    FROM SanPham sp
-    JOIN (
-        SELECT MaSP, SUM(SoLuongBan) AS S
-        FROM inserted i
-        WHERE EXISTS (SELECT 1 FROM PaidOrders po WHERE po.MaPBH = i.MaPBH)
-        GROUP BY MaSP
-    ) i ON sp.MaSP = i.MaSP;
-
+    -- Subtract new quantity
+    UPDATE p SET StockQuantity = StockQuantity - i.Qty
+    FROM Products p
+    JOIN (SELECT ProductID, SUM(Quantity) AS Qty FROM inserted i
+          WHERE EXISTS (SELECT 1 FROM Paid pi WHERE pi.InvoiceID = i.InvoiceID)
+          GROUP BY ProductID) i ON p.ProductID = i.ProductID;
 END
 GO
 
-
--- ============================================================
--- 3. TRIGGER DELETE CHI TIẾT BÁN HÀNG (sửa lỗi GO và cú pháp)
--- ============================================================
-DROP TRIGGER IF EXISTS trg_BanHang_Delete;
-GO
-
-CREATE OR ALTER TRIGGER trg_BanHang_Delete
-ON ChiTietPhieuBanHang
-AFTER DELETE
-AS
+-- Delete detail
+CREATE OR ALTER TRIGGER trg_SalesDetail_Delete
+ON SalesInvoiceDetails AFTER DELETE AS
 BEGIN
     SET NOCOUNT ON;
-
-    UPDATE sp
-    SET SoLuongTon = sp.SoLuongTon + d.S
-    FROM SanPham sp
-    JOIN (
-        SELECT MaSP, SUM(SoLuongBan) AS S
-        FROM deleted d
-        WHERE EXISTS (
-            SELECT 1 FROM PhieuBanHang p 
-            WHERE p.MaPBH = d.MaPBH AND p.TrangThai = 1
-        )
-        GROUP BY MaSP
-    ) d ON sp.MaSP = d.MaSP;
+    UPDATE p SET StockQuantity = StockQuantity + d.Qty
+    FROM Products p
+    JOIN (SELECT ProductID, SUM(Quantity) AS Qty FROM deleted d
+          JOIN SalesInvoices si ON d.InvoiceID = si.InvoiceID AND si.Status = 1
+          GROUP BY ProductID) d ON p.ProductID = d.ProductID;
 END
 GO
 
-
--- ============================================================
--- 4. TRIGGER THANH TOÁN PHIẾU (khi đổi TrangThai 0 → 1)
--- ============================================================
-CREATE OR ALTER TRIGGER trg_ThanhToan_PhieuBanHang
-ON PhieuBanHang
-AFTER UPDATE
-AS
+-- When invoice status changes from Pending → Paid
+CREATE OR ALTER TRIGGER trg_PayInvoice
+ON SalesInvoices AFTER UPDATE AS
 BEGIN
     SET NOCOUNT ON;
+    IF NOT UPDATE(Status) RETURN;
 
-    IF NOT UPDATE(TrangThai) RETURN;
-
-    DECLARE @MaPBH varchar(10);
-
+    DECLARE @InvoiceID varchar(10);
     DECLARE cur CURSOR LOCAL FAST_FORWARD FOR
-        SELECT i.MaPBH
-        FROM inserted i
-        INNER JOIN deleted d ON i.MaPBH = d.MaPBH
-        WHERE d.TrangThai = 0 AND i.TrangThai = 1;
+        SELECT i.InvoiceID FROM inserted i
+        JOIN deleted d ON i.InvoiceID = d.InvoiceID
+        WHERE d.Status = 0 AND i.Status = 1;
 
     OPEN cur;
-    FETCH NEXT FROM cur INTO @MaPBH;
-
+    FETCH NEXT FROM cur INTO @InvoiceID;
     WHILE @@FETCH_STATUS = 0
     BEGIN
-        -- Kiểm tra tồn kho
-        IF EXISTS (
-            SELECT 1
-            FROM ChiTietPhieuBanHang ct
-            JOIN SanPham sp ON ct.MaSP = sp.MaSP
-            WHERE ct.MaPBH = @MaPBH
-            GROUP BY sp.MaSP, sp.SoLuongTon
-            HAVING sp.SoLuongTon < SUM(ct.SoLuongBan)
-        )
+        IF EXISTS (SELECT 1 FROM SalesInvoiceDetails d JOIN Products p ON d.ProductID = p.ProductID
+                   WHERE d.InvoiceID = @InvoiceID
+                   GROUP BY p.ProductID, p.StockQuantity HAVING p.StockQuantity < SUM(d.Quantity))
         BEGIN
-            RAISERROR(N'Phiếu %s: Không đủ hàng trong kho để thanh toán!', 16, 1, @MaPBH);
-            ROLLBACK;
-            CLOSE cur; DEALLOCATE cur;
-            RETURN;
+            RAISERROR(N'Invoice %s: Not enough stock to complete payment!', 16, 1, @InvoiceID);
+            ROLLBACK; CLOSE cur; DEALLOCATE cur; RETURN;
         END
 
-        -- Trừ tồn kho
-        UPDATE SanPham
-        SET SoLuongTon = SoLuongTon - ct.SL
-        FROM SanPham sp
-        JOIN (
-            SELECT MaSP, SUM(SoLuongBan) AS SL
-            FROM ChiTietPhieuBanHang
-            WHERE MaPBH = @MaPBH
-            GROUP BY MaSP
-        ) ct ON sp.MaSP = ct.MaSP;
+        UPDATE p SET StockQuantity = StockQuantity - d.Qty
+        FROM Products p
+        JOIN (SELECT ProductID, SUM(Quantity) AS Qty FROM SalesInvoiceDetails WHERE InvoiceID = @InvoiceID GROUP BY ProductID) d
+            ON p.ProductID = d.ProductID;
 
-        FETCH NEXT FROM cur INTO @MaPBH;
+        FETCH NEXT FROM cur INTO @InvoiceID;
     END
-
-    CLOSE cur;
-    DEALLOCATE cur;
+    CLOSE cur; DEALLOCATE cur;
 END
 GO
--- Tự động tính lại tổng tiền mỗi khi thêm/sửa/xóa chi tiết phiếu bán
-CREATE OR ALTER TRIGGER trg_CapNhatTongTien_PBH
-ON ChiTietPhieuBanHang
-AFTER INSERT, UPDATE, DELETE
-AS
+
+-- Auto calculate TotalAmount
+CREATE OR ALTER TRIGGER trg_UpdateTotalAmount
+ON SalesInvoiceDetails AFTER INSERT, UPDATE, DELETE AS
 BEGIN
     SET NOCOUNT ON;
-
-    WITH CTE AS (
-        SELECT MaPBH, 
-               SUM(SoLuongBan * DonGia) AS Tong
-        FROM (
-            SELECT MaPBH, SoLuongBan, DonGia FROM inserted
-            UNION ALL
-            SELECT MaPBH, -SoLuongBan, DonGia FROM deleted
-        ) t
-        GROUP BY MaPBH
-    )
-    UPDATE p
-    SET TongTien = ISNULL((
-        SELECT SUM(SoLuongBan * DonGia)
-        FROM ChiTietPhieuBanHang ct
-        WHERE ct.MaPBH = p.MaPBH
-    ), 0)
-    FROM PhieuBanHang p
-    WHERE p.MaPBH IN (SELECT MaPBH FROM CTE);
+    UPDATE si SET TotalAmount = ISNULL((
+        SELECT SUM(Quantity * UnitPrice)
+        FROM SalesInvoiceDetails d WHERE d.InvoiceID = si.InvoiceID), 0)
+    FROM SalesInvoices si
+    WHERE si.InvoiceID IN (SELECT InvoiceID FROM inserted UNION SELECT InvoiceID FROM deleted);
 END
 GO
 
--- Không cho sửa MaSP trong ChiTietPhieuBanHang (nên tạo mới dòng thay vì sửa)
-CREATE OR ALTER TRIGGER trg_KhongSuaMaSP_ChiTietBan
-ON ChiTietPhieuBanHang
-FOR UPDATE
-AS
+-- Prevent changing ProductID in detail
+CREATE OR ALTER TRIGGER trg_PreventChangeProductID
+ON SalesInvoiceDetails FOR UPDATE AS
 BEGIN
-    IF UPDATE(MaSP)
+    IF UPDATE(ProductID)
     BEGIN
-        RAISERROR(N'Không được phép sửa mã sản phẩm trong chi tiết phiếu bán. Hãy xóa và thêm mới!', 16, 1);
+        RAISERROR(N'Cannot change ProductID in sales detail. Delete and insert a new line instead!', 16, 1);
         ROLLBACK;
     END
 END
 GO
 
-USE ASM_Net107
-GO
+--------------------------------------------------------------------
+-- SAMPLE DATA (FULL ENGLISH)
+--------------------------------------------------------------------
+-- Employees
+INSERT INTO Employees (EmployeeID, FullName, Email, Phone, Username, PasswordHash, Role, IsActive) VALUES
+('NV001', N'Nguyễn Văn Admin',   'admin@shop.com',   '0901234567', 'admin',     '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'Manager', 1),
+('NV002', N'Trần Thị Hương',    'huong@shop.com',   '0912345678', 'staff1',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1),
+('NV003', N'Lê Văn Nam',        'nam@shop.com',     '0923456789', 'staff2',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1);
+-- password of staff1 & staff2 = 123456 (SHA-256)
 
--- =============================================================
--- 1. Nhân viên (3 nhân viên: admin, quản lý, nhân viên)
--- =============================================================
-INSERT INTO NhanVien (MaNV, TenNV, Email, SDT, TenDangNhap, MatKhau, ChucVu, TrangThai)
-VALUES 
-('NV001', N'Nguyễn Văn Admin', 'admin@shop.com', '0901234567', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'Quản lý', 1), -- pass: admin123
-('NV002', N'Trần Thị Hương', 'huong@shop.com', '0912345678', 'nhanvien1', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Nhân viên', 1), -- pass: 123456
-('NV003', N'Lê Văn Nam', 'nam@shop.com', '0923456789', 'nhanvien2', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Nhân viên', 1);
--- Mật khẩu trên đã được hash SHA-256 của chuỗi "123456"
+-- Suppliers
+INSERT INTO Suppliers (SupplierID, SupplierName, Email, Phone) VALUES
+('SUP01', N'VinEco Clean Food Co., Ltd',          'vineco@gmail.com',         '0988111222'),
+('SUP02', N'Vinamilk Vietnam Joint Stock Company','vinamilk@vinamilk.com.vn','0285415522'),
+('SUP03', N'Saigon Beer Alcohol Beverage Corp',   'sabeco@sabeco.com.vn',     '0283829526'),
+('SUP04', N'Acecook Vietnam Joint Stock Company', 'acecook@acecook.vn',       '02838984567'),
+('SUP05', N'Suntory PepsiCo Vietnam Beverage',    'pepsi@pepsi.vn',           '02839104999');
 
--- =============================================================
--- 2. Nhà cung cấp (5 nhà cung cấp)
--- =============================================================
-INSERT INTO NhaCungCap (MaNCC, TenNCC, Email, SDT)
-VALUES
-('NCC01', N'Công ty TNHH Thực phẩm Sạch VinEco', 'vineco@gmail.com', '0988111222'),
-('NCC02', N'Công ty CP Sữa Việt Nam Vinamilk', 'vinamilk@vinamilk.com.vn', '0285415522'),
-('NCC03', N'Công ty Bia Sài Gòn SABECO', 'sabeco@sabeco.com.vn', '0283829526'),
-('NCC04', N'Công ty CP Acecook Việt Nam', 'acecook@acecook.vn', '02838984567'),
-('NCC05', N'Công ty TNHH Nước giải khát Suntory PepsiCo', 'pepsi@pepsi.vn', '02839104999');
+-- Products (20 items)
+INSERT INTO Products (ProductID, ProductName, UnitPrice, StockQuantity) VALUES
+('SP001', N'Vinamilk Fresh Milk No Sugar 1L',      32000, 150),
+('SP002', N'Vinamilk Yogurt 100g',                 6000,  300),
+('SP003', N'Saigon Export Beer Can 330ml',          14500, 500),
+('SP004', N'Heineken Silver Can 330ml',             22500, 400),
+('SP005', N'Hao Hao Instant Noodles Sour Shrimp',   4500,  1000),
+('SP006', N'Omachi Instant Noodles Beef',           5500,  800),
+('SP007', N'Pepsi Cola Can 330ml',                 10000, 600),
+('SP008', N'Coca Cola Can 330ml',                  11000, 550),
+('SP009', N'Aquafina Mineral Water 500ml',          6000,  700),
+('SP010', N'C2 Green Tea 455ml',                    8500,  400),
+('SP011', N'Oreo Chocolate Cookies 120g',           18500, 250),
+('SP012', N'Snickers Chocolate Bar 51g',            14000, 300),
+('SP013', N'ST25 Rice 5kg Bag',                    145000,80),
+('SP014', N'Simply Soybean Cooking Oil 5L',        185000,60),
+('SP015', N'Bien Hoa White Sugar 1kg',              24000, 200),
+('SP016', N'Phu Quoc Fish Sauce 520ml',             42000, 150),
+('SP017', N'Vifon Iodized Salt 1kg',                8500,  300),
+('SP018', N'Ajinomoto MSG 1kg',                     68000, 100),
+('SP019', N'Chinsu Chili Sauce 250g',               18000, 400),
+('SP020', N'Safoco Dried Noodles 400g',             16000, 250);
 
--- =============================================================
--- 3. Sản phẩm (20 sản phẩm để dư dả)
--- =============================================================
-INSERT INTO SanPham (MaSP, TenSP, DonGia, SoLuongTon)
-VALUES
-('SP001', N'Sữa tươi Vinamilk không đường 1L', 32000, 150),
-('SP002', N'Sữa chua Vinamilk có đường hộp 100g', 6000, 300),
-('SP003', N'Bia Sài Gòn Export lon 330ml', 14500, 500),
-('SP004', N'Bia Heineken bạc lon 330ml', 22500, 400),
-('SP005', N'Mì Hảo Hảo tôm chua cay', 4500, 1000),
-('SP006', N'Mì Omni thịt bò gói 75g', 5500, 800),
-('SP007', N'Pepsi lon 330ml', 10000, 600),
-('SP008', N'Coca Cola lon 330ml', 11000, 550),
-('SP009', N'Nước suối Aquafina 500ml', 6000, 700),
-('SP010', N'Trà xanh C2 chai 455ml', 8500, 400),
-('SP011', N'Bánh Oreo vị socola 120g', 18500, 250),
-('SP012', N'Snicker thanh 51g', 14000, 300),
-('SP013', N'Gạo ST25 túi 5kg', 145000, 80),
-('SP014', N'Dầu ăn Simply đậu nành 5L', 185000, 60),
-('SP015', N'Đường trắng Biên Hòa 1kg', 24000, 200),
-('SP016', N'Nước mắm Phú Quốc 35 độ đạm 520ml', 42000, 150),
-('SP017', N'Muối i-ốt Vĩ Đại 1kg', 8500, 300),
-('SP018', N'Bột ngọt Ajinomoto 1kg', 68000, 100),
-('SP019', N'Tương ớt Chinsu 250g', 18000, 400),
-('SP020', N'Nui ống Safoco 400g', 16000, 250);
+-- Customers
+INSERT INTO Customers (CustomerID, CustomerName, Phone) VALUES
+('KH001', N'Nguyễn Thị Lan',      '0905123456'),
+('KH002', N'Trần Văn Hùng',       '0918234567'),
+('KH003', N'Phạm Minh Tuấn',      '0934567890'),
+('KH004', N'Lê Thị Mai',          '0945678901'),
+('KH005', N'Vũ Văn Hoàng',        '0956789012'),
+('KH006', N'Hoàng Thị Ngọc',      '0967890123'),
+('KH007', N'Đỗ Văn Khánh',        '0978901234'),
+('KH008', N'Bùi Thị Hà',          '0989012345'),
+('KH009', N'Walk-in Customer 001','0391234567'),
+('KH010', N'Walk-in Customer 002','0392345678');
 
--- =============================================================
--- 4. Khách hàng (10 khách hàng)
--- =============================================================
-INSERT INTO KhachHang (MaKH, TenKH, SDT)
-VALUES
-('KH001', N'Nguyễn Thị Lan', '0905123456'),
-('KH002', N'Trần Văn Hùng', '0918234567'),
-('KH003', N'Phạm Minh Tuấn', '0934567890'),
-('KH004', N'Lê Thị Mai', '0945678901'),
-('KH005', N'Vũ Văn Hoàng', '0956789012'),
-('KH006', N'Hoàng Thị Ngọc', '0967890123'),
-('KH007', N'Đỗ Văn Khánh', '0978901234'),
-('KH008', N'Bùi Thị Hà', '0989012345'),
-('KH009', N'Khách lẻ 001', '0391234567'),
-('KH010', N'Khách lẻ 002', '0392345678');
+-- Purchase Invoices (2 mẫu)
+INSERT INTO PurchaseInvoices (PurchaseID, EmployeeID, SupplierID, PurchaseDate) VALUES
+('PI001', 'NV001', 'SUP02', '2025-10-15'),
+('PI002', 'NV002', 'SUP03', '2025-11-01');
 
--- =============================================================
--- 5. Phiếu nhập hàng (2 phiếu nhập mẫu)
--- =============================================================
-INSERT INTO PhieuNhap (MaPN, MaNV, MaNCC, NgayTao)
-VALUES
-('PN001', 'NV001', 'NCC02', '2025-10-15'),
-('PN002', 'NV002', 'NCC03', '2025-11-01');
+INSERT INTO PurchaseInvoiceDetails (PurchaseDetailID, PurchaseID, ProductID, Quantity, UnitPrice) VALUES
+('PD001', 'PI001', 'SP001', 100, 28000),
+('PD002', 'PI001', 'SP002', 200, 4500),
+('PD003', 'PI002', 'SP003', 300, 12000),
+('PD004', 'PI002', 'SP004', 200, 19000);
 
--- Chi tiết phiếu nhập PN001 (sữa Vinamilk)
-INSERT INTO ChiTietPhieuNhap (MaCTPN, MaPN, MaSP, SoluongNhap, DonGiaNhap)
-VALUES
-('CTPN001', 'PN001', 'SP001', 100, 28000),
-('CTPN002', 'PN001', 'SP002', 200, 4500);
+-- Sales Invoices + Details
+-- Invoice 001 - Paid
+INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI001', 'KH001', 'NV002', 1, '2025-11-10');
+INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
+('SD001', 'SI001', 'SP001', 32000, 5),
+('SD002', 'SI001', 'SP003', 14500, 12),
+('SD003', 'SI001', 'SP007', 10000, 6);
 
--- Chi tiết phiếu nhập PN002 (bia)
-INSERT INTO ChiTietPhieuNhap (MaCTPN, MaPN, MaSP, SoluongNhap, DonGiaNhap)
-VALUES
-('CTPN003', 'PN002', 'SP003', 300, 12000),
-('CTPN004', 'PN002', 'SP004', 200, 19000);
+-- Invoice 002 - Paid
+INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI002', 'KH003', 'NV003', 1, '2025-11-12');
+INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
+('SD004', 'SI002', 'SP005', 4500,  20),
+('SD005', 'SI002', 'SP008', 11000, 10),
+('SD006', 'SI002', 'SP011', 18500, 5);
 
--- =============================================================
--- 6. Phiếu bán hàng (5 phiếu: có cả đã thanh toán và chưa thanh toán)
--- =============================================================
--- Phiếu 001 - Đã thanh toán
-INSERT INTO PhieuBanHang (MaPBH, MaKH, MaNV, TrangThai, NgayTao, TongTien)
-VALUES ('PBH001', 'KH001', 'NV002', 1, '2025-11-10', NULL);
+-- Invoice 003 - Pending
+INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI003', 'KH005', 'NV002', 0, '2025-11-18');
+INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
+('SD007', 'SI003', 'SP004', 22500, 10),
+('SD008', 'SI003', 'SP009', 6000,  24);
 
-INSERT INTO ChiTietPhieuBanHang (MaCTPBH, MaPBH, MaSP, DonGia, SoLuongBan)
-VALUES
-('CT001', 'PBH001', 'SP001', 32000, 5),
-('CT002', 'PBH001', 'SP003', 14500, 12),
-('CT003', 'PBH001', 'SP007', 10000, 6);
+-- Invoice 004 - Paid
+INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI004', 'KH002', 'NV001', 1, '2025-11-17');
+INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
+('SD009', 'SI004', 'SP013', 145000, 2),
+('SD010', 'SI004', 'SP014', 185000, 1);
 
--- Phiếu 002 - Đã thanh toán
-INSERT INTO PhieuBanHang (MaPBH, MaKH, MaNV, TrangThai, NgayTao, TongTien)
-VALUES ('PBH002', 'KH003', 'NV003', 1, '2025-11-12', NULL);
+-- Invoice 005 - Pending
+INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI005', 'KH008', 'NV003', 0, '2025-11-18');
+INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
+('SD011', 'SI005', 'SP006', 5500, 30),
+('SD012', 'SI005', 'SP019', 18000, 8);
 
-INSERT INTO ChiTietPhieuBanHang (MaCTPBH, MaPBH, MaSP, DonGia, SoLuongBan)
-VALUES
-('CT004', 'PBH002', 'SP005', 4500, 20),
-('CT005', 'PBH002', 'SP008', 11000, 10),
-('CT006', 'PBH002', 'SP011', 18500, 5);
+--------------------------------------------------------------------
+-- Check results
+--------------------------------------------------------------------
+SELECT InvoiceID, TotalAmount FROM SalesInvoices ORDER BY InvoiceID;
+SELECT ProductID, ProductName, StockQuantity FROM Products ORDER BY ProductID;
 
--- Phiếu 003 - Chưa thanh toán (đang xử lý)
-INSERT INTO PhieuBanHang (MaPBH, MaKH, MaNV, TrangThai, NgayTao)
-VALUES ('PBH003', 'KH005', 'NV002', 0, '2025-11-18');
-
-INSERT INTO ChiTietPhieuBanHang (MaCTPBH, MaPBH, MaSP, DonGia, SoLuongBan)
-VALUES
-('CT007', 'PBH003', 'SP004', 22500, 10),
-('CT008', 'PBH003', 'SP009', 6000, 24);
-
--- Phiếu 004 - Đã thanh toán
-INSERT INTO PhieuBanHang (MaPBH, MaKH, MaNV, TrangThai, NgayTao, TongTien)
-VALUES ('PBH004', 'KH002', 'NV001', 1, '2025-11-17', NULL);
-
-INSERT INTO ChiTietPhieuBanHang (MaCTPBH, MaPBH, MaSP, DonGia, SoLuongBan)
-VALUES
-('CT009', 'PBH004', 'SP013', 145000, 2),
-('CT010', 'PBH004', 'SP014', 185000, 1);
-
--- Phiếu 005 - Chưa thanh toán
-INSERT INTO PhieuBanHang (MaPBH, MaKH, MaNV, TrangThai, NgayTao)
-VALUES ('PBH005', 'KH008', 'NV003', 0, '2025-11-18');
-
-INSERT INTO ChiTietPhieuBanHang (MaCTPBH, MaPBH, MaSP, DonGia, SoLuongBan)
-VALUES
-('CT011', 'PBH005', 'SP006', 5500, 30),
-('CT012', 'PBH005', 'SP019', 18000, 8);
-
--- =============================================================
--- Kiểm tra tổng tiền tự động (trigger sẽ cập nhật)
--- =============================================================
-SELECT MaPBH, TongTien FROM PhieuBanHang ORDER BY MaPBH;
-
--- Kiểm tra tồn kho hiện tại
-SELECT MaSP, TenSP, SoLuongTon FROM SanPham ORDER BY MaSP;
-
--- Kiểm tra trigger thanh toán: thử thanh toán phiếu PBH003
--- UPDATE PhieuBanHang SET TrangThai = 1 WHERE MaPBH = 'PBH003'
--- Nếu tồn đủ thì sẽ thành công và trừ tồn kho
+-- Test payment trigger (uncomment to test)
+-- UPDATE SalesInvoices SET Status = 1 WHERE InvoiceID = 'SI003'
