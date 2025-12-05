@@ -1,0 +1,76 @@
+﻿@model List<Bai02.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h3 class="mt-4 mb-3 fw-bold">SHOP FOR</h3>
+    <div class="row text-center mb-5">
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_accessories.jpg" style="height:100px; object-fit:contain;" alt="Acc">
+                <p class="mt-2 text-muted">Accessories</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_camera.jpg" style="height:100px; object-fit:contain;" alt="Cam">
+                <p class="mt-2 text-muted">Cameras</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_lens.jpg" style="height:100px; object-fit:contain;" alt="Lens">
+                <p class="mt-2 text-muted">Lenses</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_cases.jpg" style="height:100px; object-fit:contain;" alt="Case">
+                <p class="mt-2 text-muted">Lenses</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_bags.jpg" style="height:100px; object-fit:contain;" alt="Bag">
+                <p class="mt-2 text-muted">Lenses</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 bg-light py-4">
+                <img src="/images/icon_thumbsup.jpg" style="height:100px; object-fit:contain;" alt="Thumbs Up">
+                <p class="mt-2 text-muted">Lenses</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="fw-bold">FEATURED COLLECTION</h3>
+        <a href="#" class="text-decoration-none">More leica s ></a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 mb-4">
+                <div class="card h-100 border-0">
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name"
+                             style="height: 200px; object-fit: contain;">
+                    </a>
+
+                    <div class="card-body px-0">
+                        <h6 class="card-title text-muted" style="font-size: 0.9rem;">@item.Name</h6>
+
+                        <h5 class="card-text fw-bold">$@item.Price.ToString("#,##0.00")</h5>
+
+                        @if (item.Price > 18000)
+                        {
+                            <span class="badge bg-white text-primary border border-primary rounded-0 fw-normal">SAVE $3,450</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

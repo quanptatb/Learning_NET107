@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB68D28E-A152-4085-94D0-11DBDD37219F}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab06\\lab06\\bai03\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB68D28E-A152-4085-94D0-11DBDD37219F}|Bai03\\Bai03.csproj|solutionrelative:bai03\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB68D28E-A152-4085-94D0-11DBDD37219F}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab06\\lab06\\bai03\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB68D28E-A152-4085-94D0-11DBDD37219F}|Bai03\\Bai03.csproj|solutionrelative:bai03\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{740B65C9-5E3B-6CFC-5AAC-DA64564EA4C2}|Bai01\\Bai01.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab06\\lab06\\bai01\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B65C9-5E3B-6CFC-5AAC-DA64564EA4C2}|Bai01\\Bai01.csproj|solutionrelative:bai01\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,29 +25,20 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai03\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Bai03\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai03\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Bai03\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAuwFoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:20:23.486Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductModel.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai03\\Models\\ProductModel.cs",
-              "RelativeDocumentMoniker": "Bai03\\Models\\ProductModel.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai03\\Models\\ProductModel.cs",
-              "RelativeToolTip": "Bai03\\Models\\ProductModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai01\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Bai01\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab06\\Lab06\\Bai01\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Bai01\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:20:06.317Z",
+              "WhenOpened": "2025-12-05T02:16:39.056Z",
               "EditorCaption": ""
             }
           ]
