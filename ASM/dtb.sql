@@ -16,24 +16,24 @@ CREATE TABLE Employees (
     Email varchar(100) NOT NULL,
     Phone varchar(15),
     Username varchar(20) NOT NULL,
-    PasswordHash varchar(255) NOT NULL,      -- SHA-256 hash in production
+    PasswordHash varchar(255) NOT NULL,
     Role nvarchar(20) DEFAULT N'Staff',
     CreatedDate date DEFAULT GETDATE(),
     IsActive bit DEFAULT 1,
     CONSTRAINT UK_Employees_Email UNIQUE(Email),
     CONSTRAINT UK_Employees_Username UNIQUE(Username),
-    CONSTRAINT CK_Employees_Phone CHECK (Phone LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]%' 
-                                        AND LEN(Phone) IN (10,11))
+    CONSTRAINT CK_Employees_Phone CHECK (Phone LIKE '[0-9]%' AND LEN(Phone) IN (10,11))
 );
 
 --------------------------------------------------------------------
--- 2. Products
+-- 2. Products (Đã thêm cột ImageURL)
 --------------------------------------------------------------------
 CREATE TABLE Products (
     ProductID varchar(10) PRIMARY KEY,
     ProductName nvarchar(100) NOT NULL,
     UnitPrice decimal(18,2) NOT NULL CHECK (UnitPrice >= 0),
-    StockQuantity int NOT NULL DEFAULT 0 CHECK (StockQuantity >= 0)
+    StockQuantity int NOT NULL DEFAULT 0 CHECK (StockQuantity >= 0),
+    ImageURL nvarchar(255) NULL -- Cột hình ảnh mới
 );
 
 --------------------------------------------------------------------
@@ -54,7 +54,7 @@ CREATE TABLE SalesInvoices (
     InvoiceID varchar(10) PRIMARY KEY,
     CustomerID varchar(10) NOT NULL,
     EmployeeID varchar(10) NOT NULL,
-    Status bit DEFAULT 0,               -- 0 = Pending, 1 = Paid
+    Status bit DEFAULT 0,                -- 0 = Pending, 1 = Paid
     InvoiceDate date DEFAULT GETDATE(),
     TotalAmount decimal(18,2) NULL,
     CONSTRAINT FK_SalesInvoices_Customers FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
@@ -121,8 +121,9 @@ CREATE INDEX IX_SalesInvoices_InvoiceDate ON SalesInvoices(InvoiceDate);
 GO
 
 --------------------------------------------------------------------
--- TRIGGERS: PURCHASE → STOCK IN
+-- TRIGGERS (GIỮ NGUYÊN NHƯ CŨ)
 --------------------------------------------------------------------
+-- Trigger: PURCHASE → STOCK IN
 CREATE OR ALTER TRIGGER trg_Purchase_Insert
 ON PurchaseInvoiceDetails AFTER INSERT AS
 BEGIN
@@ -162,10 +163,7 @@ BEGIN
 END
 GO
 
---------------------------------------------------------------------
--- TRIGGERS: SALES → STOCK OUT
---------------------------------------------------------------------
--- Insert detail (only subtract stock if invoice is already Paid)
+-- Trigger: SALES → STOCK OUT
 CREATE OR ALTER TRIGGER trg_SalesDetail_Insert
 ON SalesInvoiceDetails AFTER INSERT AS
 BEGIN
@@ -187,7 +185,6 @@ BEGIN
 END
 GO
 
--- Update detail
 CREATE OR ALTER TRIGGER trg_SalesDetail_Update
 ON SalesInvoiceDetails AFTER UPDATE AS
 BEGIN
@@ -222,7 +219,6 @@ BEGIN
 END
 GO
 
--- Delete detail
 CREATE OR ALTER TRIGGER trg_SalesDetail_Delete
 ON SalesInvoiceDetails AFTER DELETE AS
 BEGIN
@@ -235,7 +231,6 @@ BEGIN
 END
 GO
 
--- When invoice status changes from Pending → Paid
 CREATE OR ALTER TRIGGER trg_PayInvoice
 ON SalesInvoices AFTER UPDATE AS
 BEGIN
@@ -271,7 +266,6 @@ BEGIN
 END
 GO
 
--- Auto calculate TotalAmount
 CREATE OR ALTER TRIGGER trg_UpdateTotalAmount
 ON SalesInvoiceDetails AFTER INSERT, UPDATE, DELETE AS
 BEGIN
@@ -284,7 +278,6 @@ BEGIN
 END
 GO
 
--- Prevent changing ProductID in detail
 CREATE OR ALTER TRIGGER trg_PreventChangeProductID
 ON SalesInvoiceDetails FOR UPDATE AS
 BEGIN
@@ -297,108 +290,105 @@ END
 GO
 
 --------------------------------------------------------------------
--- SAMPLE DATA (FULL ENGLISH)
+-- SAMPLE DATA (Cập nhật sang Điện thoại & Laptop)
 --------------------------------------------------------------------
 -- Employees
 INSERT INTO Employees (EmployeeID, FullName, Email, Phone, Username, PasswordHash, Role, IsActive) VALUES
-('NV001', N'Nguyễn Văn Admin',   'admin@shop.com',   '0901234567', 'admin',     '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'Manager', 1),
-('NV002', N'Trần Thị Hương',    'huong@shop.com',   '0912345678', 'staff1',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1),
-('NV003', N'Lê Văn Nam',        'nam@shop.com',     '0923456789', 'staff2',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1);
--- password of staff1 & staff2 = 123456 (SHA-256)
+('NV001', N'Nguyễn Văn Admin',    'admin@techshop.com',   '0901234567', 'admin',     '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'Manager', 1),
+('NV002', N'Trần Thị Sale',     'sale1@techshop.com',    '0912345678', 'staff1',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1),
+('NV003', N'Lê Văn Kho',        'kho@techshop.com',      '0923456789', 'staff2',    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', N'Staff',   1);
 
--- Suppliers
+-- Suppliers (Các nhà cung cấp công nghệ)
 INSERT INTO Suppliers (SupplierID, SupplierName, Email, Phone) VALUES
-('SUP01', N'VinEco Clean Food Co., Ltd',          'vineco@gmail.com',         '0988111222'),
-('SUP02', N'Vinamilk Vietnam Joint Stock Company','vinamilk@vinamilk.com.vn','0285415522'),
-('SUP03', N'Saigon Beer Alcohol Beverage Corp',   'sabeco@sabeco.com.vn',     '0283829526'),
-('SUP04', N'Acecook Vietnam Joint Stock Company', 'acecook@acecook.vn',       '02838984567'),
-('SUP05', N'Suntory PepsiCo Vietnam Beverage',    'pepsi@pepsi.vn',           '02839104999');
+('SUP01', N'Apple Vietnam LLC',             'contact@apple.com.vn',     '18001127'),
+('SUP02', N'Samsung Vina Electronics',      'b2b@samsung.com',          '02839157600'),
+('SUP03', N'FPT Synnex',                    'info@synnexfpt.com',       '02473006666'),
+('SUP04', N'Digiworld Corp',                'sales@dgw.com.vn',         '02839290059'),
+('SUP05', N'PetroSetco Distribution',       'contact@petrosetco.vn',    '02839117777');
 
--- Products (20 items)
-INSERT INTO Products (ProductID, ProductName, UnitPrice, StockQuantity) VALUES
-('SP001', N'Vinamilk Fresh Milk No Sugar 1L',      32000, 150),
-('SP002', N'Vinamilk Yogurt 100g',                 6000,  300),
-('SP003', N'Saigon Export Beer Can 330ml',          14500, 500),
-('SP004', N'Heineken Silver Can 330ml',             22500, 400),
-('SP005', N'Hao Hao Instant Noodles Sour Shrimp',   4500,  1000),
-('SP006', N'Omachi Instant Noodles Beef',           5500,  800),
-('SP007', N'Pepsi Cola Can 330ml',                 10000, 600),
-('SP008', N'Coca Cola Can 330ml',                  11000, 550),
-('SP009', N'Aquafina Mineral Water 500ml',          6000,  700),
-('SP010', N'C2 Green Tea 455ml',                    8500,  400),
-('SP011', N'Oreo Chocolate Cookies 120g',           18500, 250),
-('SP012', N'Snickers Chocolate Bar 51g',            14000, 300),
-('SP013', N'ST25 Rice 5kg Bag',                    145000,80),
-('SP014', N'Simply Soybean Cooking Oil 5L',        185000,60),
-('SP015', N'Bien Hoa White Sugar 1kg',              24000, 200),
-('SP016', N'Phu Quoc Fish Sauce 520ml',             42000, 150),
-('SP017', N'Vifon Iodized Salt 1kg',                8500,  300),
-('SP018', N'Ajinomoto MSG 1kg',                     68000, 100),
-('SP019', N'Chinsu Chili Sauce 250g',               18000, 400),
-('SP020', N'Safoco Dried Noodles 400g',             16000, 250);
+-- Products (Điện thoại & Laptop - Có ImageURL)
+INSERT INTO Products (ProductID, ProductName, UnitPrice, StockQuantity, ImageURL) VALUES
+-- Phones
+('DT001', N'iPhone 15 Pro Max 256GB',       29500000, 50,  'iphone15promax.jpg'),
+('DT002', N'iPhone 15 Plus 128GB',          22000000, 30,  'iphone15plus.jpg'),
+('DT003', N'Samsung Galaxy S24 Ultra 512GB',28990000, 40,  's24ultra.jpg'),
+('DT004', N'Samsung Galaxy Z Fold5',        35000000, 20,  'zfold5.jpg'),
+('DT005', N'Xiaomi 14 Ultra',               24990000, 25,  'xiaomi14ultra.jpg'),
+('DT006', N'OPPO Find N3 Flip',             19990000, 30,  'oppon3flip.jpg'),
+('DT007', N'Google Pixel 8 Pro',            20500000, 15,  'pixel8pro.jpg'),
+('DT008', N'Sony Xperia 1 V',               27990000, 10,  'xperia1v.jpg'),
+('DT009', N'Asus ROG Phone 8 Pro',          26000000, 15,  'rogphone8.jpg'),
+('DT010', N'iPhone 13 128GB',               13500000, 60,  'iphone13.jpg'),
+
+-- Laptops
+('LT001', N'MacBook Air M2 13 inch 8GB',    24500000, 20,  'macbookairm2.jpg'),
+('LT002', N'MacBook Pro 14 M3 16GB',        45000000, 15,  'macbookprom3.jpg'),
+('LT003', N'Dell XPS 13 Plus 9320',         38000000, 10,  'dellxps13.jpg'),
+('LT004', N'HP Spectre x360 14',            35000000, 12,  'hpspectre.jpg'),
+('LT005', N'Lenovo ThinkPad X1 Carbon Gen 11',42000000, 8, 'thinkpadx1.jpg'),
+('LT006', N'Asus Zenbook 14 OLED',          21000000, 25,  'zenbook14.jpg'),
+('LT007', N'Acer Predator Helios Neo 16',   32000000, 15,  'acerpredator.jpg'),
+('LT008', N'MSI Gaming Katana 15',          25000000, 20,  'msikatana.jpg'),
+('LT009', N'LG Gram 2023 16 inch',          29000000, 10,  'lggram16.jpg'),
+('LT010', N'Surface Laptop 5 13.5',         26000000, 12,  'surface5.jpg');
 
 -- Customers
 INSERT INTO Customers (CustomerID, CustomerName, Phone) VALUES
-('KH001', N'Nguyễn Thị Lan',      '0905123456'),
-('KH002', N'Trần Văn Hùng',       '0918234567'),
-('KH003', N'Phạm Minh Tuấn',      '0934567890'),
-('KH004', N'Lê Thị Mai',          '0945678901'),
-('KH005', N'Vũ Văn Hoàng',        '0956789012'),
-('KH006', N'Hoàng Thị Ngọc',      '0967890123'),
-('KH007', N'Đỗ Văn Khánh',        '0978901234'),
-('KH008', N'Bùi Thị Hà',          '0989012345'),
-('KH009', N'Walk-in Customer 001','0391234567'),
-('KH010', N'Walk-in Customer 002','0392345678');
+('KH001', N'Nguyễn Thị Lan',    '0905123456'),
+('KH002', N'Trần Văn Hùng',     '0918234567'),
+('KH003', N'Phạm Minh Tuấn',    '0934567890'),
+('KH004', N'Lê Thị Mai',        '0945678901'),
+('KH005', N'Vũ Văn Hoàng',      '0956789012'),
+('KH006', N'Hoàng Thị Ngọc',    '0967890123'),
+('KH007', N'Đỗ Văn Khánh',      '0978901234'),
+('KH008', N'Bùi Thị Hà',        '0989012345'),
+('KH009', N'Khách Vãng Lai 1',  '0391234567'),
+('KH010', N'Khách Vãng Lai 2',  '0392345678');
 
--- Purchase Invoices (2 mẫu)
+-- Purchase Invoices (Nhập hàng)
 INSERT INTO PurchaseInvoices (PurchaseID, EmployeeID, SupplierID, PurchaseDate) VALUES
-('PI001', 'NV001', 'SUP02', '2025-10-15'),
-('PI002', 'NV002', 'SUP03', '2025-11-01');
+('PI001', 'NV001', 'SUP01', '2025-10-15'), -- Nhập từ Apple
+('PI002', 'NV002', 'SUP02', '2025-11-01'); -- Nhập từ Samsung
 
 INSERT INTO PurchaseInvoiceDetails (PurchaseDetailID, PurchaseID, ProductID, Quantity, UnitPrice) VALUES
-('PD001', 'PI001', 'SP001', 100, 28000),
-('PD002', 'PI001', 'SP002', 200, 4500),
-('PD003', 'PI002', 'SP003', 300, 12000),
-('PD004', 'PI002', 'SP004', 200, 19000);
+('PD001', 'PI001', 'DT001', 20, 26000000), -- iPhone 15 Pro Max
+('PD002', 'PI001', 'LT001', 10, 21000000), -- MacBook Air
+('PD003', 'PI002', 'DT003', 15, 25000000), -- S24 Ultra
+('PD004', 'PI002', 'DT004', 10, 31000000); -- Z Fold5
 
 -- Sales Invoices + Details
--- Invoice 001 - Paid
+-- Invoice 001 - Paid (Bán được hàng)
 INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI001', 'KH001', 'NV002', 1, '2025-11-10');
 INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
-('SD001', 'SI001', 'SP001', 32000, 5),
-('SD002', 'SI001', 'SP003', 14500, 12),
-('SD003', 'SI001', 'SP007', 10000, 6);
+('SD001', 'SI001', 'DT001', 29500000, 1), -- Mua 1 iPhone
+('SD002', 'SI001', 'LT006', 21000000, 1); -- Mua 1 Laptop Asus
 
 -- Invoice 002 - Paid
 INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI002', 'KH003', 'NV003', 1, '2025-11-12');
 INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
-('SD004', 'SI002', 'SP005', 4500,  20),
-('SD005', 'SI002', 'SP008', 11000, 10),
-('SD006', 'SI002', 'SP011', 18500, 5);
+('SD003', 'SI002', 'DT010', 13500000, 2), -- Mua 2 iPhone 13
+('SD004', 'SI002', 'LT008', 25000000, 1); -- Mua 1 MSI Gaming
 
--- Invoice 003 - Pending
+-- Invoice 003 - Pending (Chưa thanh toán)
 INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI003', 'KH005', 'NV002', 0, '2025-11-18');
 INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
-('SD007', 'SI003', 'SP004', 22500, 10),
-('SD008', 'SI003', 'SP009', 6000,  24);
+('SD005', 'SI003', 'LT002', 45000000, 1), -- MacBook Pro
+('SD006', 'SI003', 'DT009', 26000000, 1); -- ROG Phone
 
 -- Invoice 004 - Paid
 INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI004', 'KH002', 'NV001', 1, '2025-11-17');
 INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
-('SD009', 'SI004', 'SP013', 145000, 2),
-('SD010', 'SI004', 'SP014', 185000, 1);
+('SD007', 'SI004', 'LT005', 42000000, 1), -- ThinkPad X1
+('SD008', 'SI004', 'DT003', 28990000, 1); -- S24 Ultra
 
 -- Invoice 005 - Pending
 INSERT INTO SalesInvoices (InvoiceID, CustomerID, EmployeeID, Status, InvoiceDate) VALUES ('SI005', 'KH008', 'NV003', 0, '2025-11-18');
 INSERT INTO SalesInvoiceDetails (DetailID, InvoiceID, ProductID, UnitPrice, Quantity) VALUES
-('SD011', 'SI005', 'SP006', 5500, 30),
-('SD012', 'SI005', 'SP019', 18000, 8);
+('SD009', 'SI005', 'DT005', 24990000, 1), -- Xiaomi 14
+('SD010', 'SI005', 'LT010', 26000000, 1); -- Surface Laptop
 
 --------------------------------------------------------------------
 -- Check results
 --------------------------------------------------------------------
-SELECT InvoiceID, TotalAmount FROM SalesInvoices ORDER BY InvoiceID;
-SELECT ProductID, ProductName, StockQuantity FROM Products ORDER BY ProductID;
-
--- Test payment trigger (uncomment to test)
--- UPDATE SalesInvoices SET Status = 1 WHERE InvoiceID = 'SI003'
+SELECT InvoiceID, TotalAmount, Status FROM SalesInvoices ORDER BY InvoiceID;
+SELECT ProductID, ProductName, StockQuantity, ImageURL FROM Products ORDER BY ProductID;
