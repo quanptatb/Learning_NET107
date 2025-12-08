@@ -24,40 +24,52 @@ namespace ASM_NET107.Controllers
         [HttpPost]
         public IActionResult Create(Employees employee)
         {
+            ModelState.Remove("EmployeeID");
+            employee.CreatedDate = DateOnly.FromDateTime(DateTime.Now);
             if (ModelState.IsValid)
             {
-                _employeeDAL.InsertEmployee(employee);
-                return RedirectToAction("Employee");
+                try
+                {
+                    _employeeDAL.InsertEmployee(employee);
+
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Lỗi lưu dữ liệu: " + ex.Message);
+                }
             }
+
             return View(employee);
         }
-        public IActionResult Delete()
-        {
-            var employees = _employeeDAL.GetActiveEmployees();
-            return View(employees);
-        }
-        [HttpPost]
+
         public IActionResult Delete(string id)
         {
-            _employeeDAL.DeleteEmployee(id);
-            return RedirectToAction("Employee");
-        }
-        public IActionResult Edit(string id)
-        {
             var employee = _employeeDAL.GetEmployeeById(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
+            if (employee == null) return NotFound();
             return View(employee);
         }
+
+        [HttpPost]
+        public IActionResult DeleteConfirmed(string id)
+        {
+            _employeeDAL.DeleteEmployee(id);
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public IActionResult Edit(Employees employee)
         {
             if (ModelState.IsValid)
             {
+                var oldData = _employeeDAL.GetEmployeeById(employee.EmployeeID);
+                if (oldData != null)
+                {
+                    employee.CreatedDate = oldData.CreatedDate;
+                }
+
                 _employeeDAL.UpdateEmployee(employee);
-                return RedirectToAction("Employee");
+                return RedirectToAction("Index");
             }
             return View(employee);
         }

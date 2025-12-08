@@ -119,7 +119,9 @@ namespace ASM_NET107.DAL
                              "VALUES (@EmployeeID, @FullName, @Email, @Phone, @Username, @PasswordHash, @Role, @CreatedDate, @IsActive)";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+                    //mã nv tự generate
+                    string newID = GenerateEmployeeID();
+                    command.Parameters.AddWithValue("@EmployeeID", newID);
                     command.Parameters.AddWithValue("@FullName", employee.FullName);
                     command.Parameters.AddWithValue("@Email", employee.Email);
                     command.Parameters.AddWithValue("@Phone", employee.Phone);
@@ -132,6 +134,29 @@ namespace ASM_NET107.DAL
                 }
             }
         }
+        //tự động sinh mã nhân viên
+        public string GenerateEmployeeID()
+        {
+            string newEmployeeID = "EMP001";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TOP 1 EmployeeID FROM Employees ORDER BY EmployeeID DESC";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string lastEmployeeID = result.ToString();
+                        int numericPart = int.Parse(lastEmployeeID.Substring(3));
+                        numericPart++;
+                        newEmployeeID = "EMP" + numericPart.ToString("D3");
+                    }
+                }
+            }
+            return newEmployeeID;
+        }
+
         //update
         public void UpdateEmployee(Employees employee)
         {

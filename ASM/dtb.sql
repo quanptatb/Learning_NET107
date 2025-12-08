@@ -26,7 +26,7 @@ CREATE TABLE Employees (
 );
 
 --------------------------------------------------------------------
--- 2. Products (Đã thêm cột ImageURL)
+-- 2. Products
 --------------------------------------------------------------------
 CREATE TABLE Products (
     ProductID varchar(10) PRIMARY KEY,
