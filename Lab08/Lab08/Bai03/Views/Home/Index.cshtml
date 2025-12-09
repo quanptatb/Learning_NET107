@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Message</h1>
+
+    @if (ViewBag.UserName != null)
+    {
+        <p>Bạn đã đăng nhập với Cookie: <strong>@ViewBag.UserName</strong></p>
+        <a href="/Home/Logout" class="btn btn-danger">Đăng xuất (Xóa Cookie)</a>
+    }
+    else
+    {
+        <p>Bạn chưa đăng nhập.</p>
+        <a href="/Account/Login" class="btn btn-success">Đăng nhập ngay</a>
+    }
+</div>
