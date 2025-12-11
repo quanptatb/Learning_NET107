@@ -1,0 +1,33 @@
+﻿@using System.Data
+@model DataRow
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="card mb-3 border-0">
+    <div class="row g-0">
+        <div class="col-md-5">
+            <img src="~/img/@Model["Image"]" class="img-fluid rounded-start" alt="@Model["Name"]" style="width:100%; height:400px; object-fit:cover;">
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <h2 class="card-title">@Model["Name"]</h2>
+                <h3 class="text-danger fw-bold">@string.Format("{0:N0}", Model["Price"]) VNĐ</h3>
+
+                <ul class="list-group list-group-flush my-3">
+                    <li class="list-group-item"><strong>Màu sắc:</strong> @Model["Color"]</li>
+                    <li class="list-group-item"><strong>Kích cỡ:</strong> @Model["Size"]</li>
+                    <li class="list-group-item"><strong>Mô tả:</strong> <br> @Model["Description"]</li>
+                </ul>
+
+                <div class="d-flex gap-2">
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model["Id"]" class="btn btn-lg btn-warning">
+                        Thêm vào giỏ hàng
+                    </a>
+                    <a asp-action="Index" class="btn btn-lg btn-outline-secondary">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
