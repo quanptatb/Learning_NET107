@@ -1,4 +1,96 @@
-﻿<div class="form-group">
-    <label>Danh mục</label>
-    <select name="CategoryId" class="form-control" asp-items="@ViewBag.Categories"></select>
+﻿@model ASM_NET107_TB01758.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới sản phẩm";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="font-weight-light my-2 text-center">Thêm Mới Sản Phẩm</h3>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <label asp-for="Name" class="control-label fw-bold">Tên sản phẩm</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm" required />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <label asp-for="Price" class="control-label fw-bold">Giá bán (VNĐ)</label>
+                                    <input asp-for="Price" type="number" class="form-control" placeholder="Nhập giá bán" required />
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3 mb-md-0">
+                                    <label asp-for="CategoryId" class="control-label fw-bold mb-1">Danh mục</label>
+                                    <select asp-for="CategoryId" class="form-control form-select" asp-items="@ViewBag.Categories">
+                                        <option value="">-- Chọn danh mục --</option>
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Image" class="control-label fw-bold mb-1">Tên file ảnh</label>
+                                    <input asp-for="Image" class="form-control" placeholder="Ví dụ: iphone15.jpg" />
+                                    <span asp-validation-for="Image" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3 mb-md-0">
+                                    <label asp-for="Color" class="control-label fw-bold mb-1">Màu sắc</label>
+                                    <input asp-for="Color" class="form-control" placeholder="Ví dụ: Đen, Trắng, Titan..." />
+                                    <span asp-validation-for="Color" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Size" class="control-label fw-bold mb-1">Kích thước / Dung lượng</label>
+                                    <input asp-for="Size" class="form-control" placeholder="Ví dụ: L, XL, 256GB..." />
+                                    <span asp-validation-for="Size" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Description" class="control-label fw-bold mb-1">Mô tả chi tiết</label>
+                            <textarea asp-for="Description" class="form-control" rows="5" placeholder="Nhập mô tả sản phẩm..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3 mt-4">
+                            <a asp-action="Index" class="btn btn-secondary btn-lg px-4">
+                                <i class="fa fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fa fa-save"></i> Lưu sản phẩm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

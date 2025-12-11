@@ -966,11 +966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107_TB01758\\ASM_NET107_TB01758.csproj",
+      "projectUniqueName": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM_FINAL\\ASM\\ASM_NET107_TB01758\\ASM_NET107_TB01758.csproj",
       "projectName": "ASM_NET107_TB01758",
-      "projectPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107_TB01758\\ASM_NET107_TB01758.csproj",
+      "projectPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM_FINAL\\ASM\\ASM_NET107_TB01758\\ASM_NET107_TB01758.csproj",
       "packagesPath": "C:\\Users\\Cua\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107_TB01758\\obj\\",
+      "outputPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM_FINAL\\ASM\\ASM_NET107_TB01758\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
