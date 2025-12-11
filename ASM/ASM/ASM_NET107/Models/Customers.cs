@@ -7,6 +7,7 @@ namespace ASM_NET107.Models
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }
         public string Phone { get; set; }
+        public string? Password { get; set; } // Thêm trường này
         public DateOnly CreatedDate { get; set; }
     }
 }

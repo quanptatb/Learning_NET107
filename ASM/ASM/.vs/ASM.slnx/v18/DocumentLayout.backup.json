@@ -3,56 +3,56 @@
   "WorkspaceRootPath": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\views\\employee\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\views\\employee\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{20644850-D7D7-614E-C2E6-0D8D84792B4A}|ASM\\ASM.csproj|solutionrelative:asm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\models\\employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\models\\employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\views\\product\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\salesinvoicedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\salesinvoicedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\views\\order\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\views\\order\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\invoicedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\invoicedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\asm\\asm\\asm_net107\\dal\\supplierdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{721F993F-6022-45E5-A853-B90EA2A86AD2}|ASM_NET107\\ASM_NET107.csproj|solutionrelative:asm_net107\\dal\\supplierdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,162 +78,167 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "ASM\\Views\\_ViewStart.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "ASM\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T01:42:40.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Program.cs",
-              "RelativeDocumentMoniker": "ASM\\Program.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Program.cs",
-              "RelativeToolTip": "ASM\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T01:42:38.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\appsettings.json",
-              "RelativeDocumentMoniker": "ASM\\appsettings.json",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\appsettings.json",
-              "RelativeToolTip": "ASM\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-08T01:42:36.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\Customer\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASM\\Views\\Customer\\Index.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\Customer\\Index.cshtml",
-              "RelativeToolTip": "ASM\\Views\\Customer\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T01:29:59.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ASM\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ASM\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAAALEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T01:29:40.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Product.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Product\\Product.cshtml",
-              "RelativeDocumentMoniker": "ASM_NET107\\Views\\Product\\Product.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Product\\Product.cshtml",
-              "RelativeToolTip": "ASM_NET107\\Views\\Product\\Product.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T19:32:45.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Order.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Order\\Order.cshtml",
-              "RelativeDocumentMoniker": "ASM_NET107\\Views\\Order\\Order.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Order\\Order.cshtml",
-              "RelativeToolTip": "ASM_NET107\\Views\\Order\\Order.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T19:32:40.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Program.cs",
-              "RelativeDocumentMoniker": "ASM_NET107\\Program.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Program.cs",
-              "RelativeToolTip": "ASM_NET107\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T19:20:29.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Employee\\Create.cshtml",
-              "RelativeDocumentMoniker": "ASM_NET107\\Views\\Employee\\Create.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Employee\\Create.cshtml",
-              "RelativeToolTip": "ASM_NET107\\Views\\Employee\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T19:08:51.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "ASM_NET107\\Controllers\\EmployeeController.cs",
               "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\EmployeeController.cs",
               "RelativeToolTip": "ASM_NET107\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T18:57:50.869Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Employee\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASM_NET107\\Views\\Employee\\Index.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Employee\\Index.cshtml",
-              "RelativeToolTip": "ASM_NET107\\Views\\Employee\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC8AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T18:46:06.009Z",
+              "WhenOpened": "2025-12-11T13:26:21.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\CartController.cs",
+              "RelativeToolTip": "ASM_NET107\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAAEkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T13:24:05.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\Models\\CartItem.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Models\\CartItem.cs",
+              "RelativeToolTip": "ASM_NET107\\Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T13:23:09.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "ASM_NET107\\Views\\Product\\Index.cshtml",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "ASM_NET107\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T13:13:48.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Program.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\Program.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Program.cs",
+              "RelativeToolTip": "ASM_NET107\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T13:12:42.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "ASM_NET107\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T13:11:18.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ASM_NET107\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAA1wFEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T13:08:05.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SalesInvoiceDAL.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\SalesInvoiceDAL.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\DAL\\SalesInvoiceDAL.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\SalesInvoiceDAL.cs",
+              "RelativeToolTip": "ASM_NET107\\DAL\\SalesInvoiceDAL.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwG4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:41:44.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InvoiceDAL.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\InvoiceDAL.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\DAL\\InvoiceDAL.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\InvoiceDAL.cs",
+              "RelativeToolTip": "ASM_NET107\\DAL\\InvoiceDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:58:54.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SupplierDAL.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\SupplierDAL.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\DAL\\SupplierDAL.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\SupplierDAL.cs",
+              "RelativeToolTip": "ASM_NET107\\DAL\\SupplierDAL.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:40:52.524Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "ProductDAL.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\ProductDAL.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\DAL\\ProductDAL.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\ProductDAL.cs",
+              "RelativeToolTip": "ASM_NET107\\DAL\\ProductDAL.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAwwJoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:38:57.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerDAL.cs",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\CustomerDAL.cs",
+              "RelativeDocumentMoniker": "ASM_NET107\\DAL\\CustomerDAL.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\CustomerDAL.cs",
+              "RelativeToolTip": "ASM_NET107\\DAL\\CustomerDAL.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAowJsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:40:08.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "EmployeeDAL.cs",
               "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\EmployeeDAL.cs",
               "RelativeDocumentMoniker": "ASM_NET107\\DAL\\EmployeeDAL.cs",
               "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\DAL\\EmployeeDAL.cs",
               "RelativeToolTip": "ASM_NET107\\DAL\\EmployeeDAL.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAQwHsAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAYwAQBAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T18:44:24.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Employees.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Models\\Employees.cs",
-              "RelativeDocumentMoniker": "ASM_NET107\\Models\\Employees.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\ASM\\ASM\\ASM_NET107\\Models\\Employees.cs",
-              "RelativeToolTip": "ASM_NET107\\Models\\Employees.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T18:44:18.968Z"
+              "WhenOpened": "2025-12-11T13:08:43.454Z"
             }
           ]
         }

@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<ASM_NET107.Models.Products>
+
+@{
+    var role = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+@if (role == "Admin")
+{
+    <a href="/Product/Create" class="btn btn-primary">Thêm mới</a>
+}
+
+<table class="table">
+    <tr>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.UnitPrice</td>
+            <td>
+                @if (role == "Admin")
+                {
+                    <a href="/Product/Edit/@item.ProductID">Sửa</a>
+                    <a href="/Product/Delete/@item.ProductID">Xóa</a>
+                }
+                else
+                {
+                    <a href="/Cart/Add/@item.ProductID">Thêm vào giỏ</a>
+                }
+            </td>
+        </tr>
+    }
+</table>

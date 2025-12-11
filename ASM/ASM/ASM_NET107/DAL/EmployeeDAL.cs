@@ -1,5 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-using ASM_NET107.Models;
+﻿using ASM_NET107.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Http;
 
 namespace ASM_NET107.DAL
 {
@@ -10,6 +12,7 @@ namespace ASM_NET107.DAL
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
+        
         public List<Employees> GetEmployees()
         {
             List<Employees> employees = new List<Employees>();
@@ -148,9 +151,9 @@ namespace ASM_NET107.DAL
                     if (result != null)
                     {
                         string lastEmployeeID = result.ToString();
-                        int numericPart = int.Parse(lastEmployeeID.Substring(3));
+                        int numericPart = int.Parse(lastEmployeeID.Substring(2));
                         numericPart++;
-                        newEmployeeID = "EMP" + numericPart.ToString("D3");
+                        newEmployeeID = "NV" + numericPart.ToString("D3");
                     }
                 }
             }
@@ -230,6 +233,38 @@ namespace ASM_NET107.DAL
                 }
             }
             return employees;
+        }
+        public Employees CheckLogin(string username, string password)
+        {
+            Employees employee = null;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                // Lưu ý: Password nên được mã hóa (MD5/BCrypt) thay vì lưu plain text như hiện tại
+                string sql = "SELECT * FROM Employees WHERE Username = @Username AND PasswordHash = @Password AND IsActive = 1";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password); // So sánh trực tiếp password
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            employee = new Employees
+                            {
+                                EmployeeID = reader["EmployeeID"].ToString(),
+                                FullName = reader["FullName"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                Phone = reader["Phone"].ToString(),
+                                Username = reader["Username"].ToString(),
+                                PasswordHash = reader["PasswordHash"].ToString(),
+                                Role = reader["Role"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return employee;
         }
     }
 }

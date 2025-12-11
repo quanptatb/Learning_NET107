@@ -1,10 +1,15 @@
-using ASM_NET107.DAL;
+﻿using ASM_NET107.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<EmployeeDAL>();
+builder.Services.AddScoped<ProductDAL>();
+builder.Services.AddScoped<CustomerDAL>();
+builder.Services.AddScoped<SupplierDAL>();
+builder.Services.AddScoped<SalesInvoiceDAL>();
+// ... đăng ký các DAL khác
 
 var app = builder.Build();
 
@@ -20,12 +25,12 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseSession();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Index}/{id?}")
+    pattern: "{controller=Account}/{action=Login}/{id?}")
     .WithStaticAssets();
 
 

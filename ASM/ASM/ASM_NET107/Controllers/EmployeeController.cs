@@ -14,6 +14,9 @@ namespace ASM_NET107.Controllers
         }
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("UserRole") != "Manager")
+                return RedirectToAction("Login", "Account");
+
             var employees = _employeeDAL.GetEmployees();
             return View(employees);
         }
@@ -56,7 +59,20 @@ namespace ASM_NET107.Controllers
             _employeeDAL.DeleteEmployee(id);
             return RedirectToAction("Index");
         }
-
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+            var employee = _employeeDAL.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
         [HttpPost]
         public IActionResult Edit(Employees employee)
         {
@@ -73,5 +89,20 @@ namespace ASM_NET107.Controllers
             }
             return View(employee);
         }
+        // 2. Action GET cho chức năng Xem chi tiết
+        public IActionResult Details(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+            var employee = _employeeDAL.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
     }
 }

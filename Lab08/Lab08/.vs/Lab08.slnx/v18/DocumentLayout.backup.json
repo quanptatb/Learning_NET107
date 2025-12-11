@@ -11,24 +11,8 @@
       "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai03\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai03\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai03\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai03\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A8C6F02-4F95-4F65-BF03-5815F4DF41C8}|Bai03\\Bai03.csproj|solutionrelative:bai03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7A447780-F85A-4404-A8BB-6ABBDB77BA1A}|Bai02\\Bai02.csproj|d:\\work\\ky7\\block2\\net107\\learning_net107\\lab08\\lab08\\bai02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A447780-F85A-4404-A8BB-6ABBDB77BA1A}|Bai02\\Bai02.csproj|solutionrelative:bai02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,54 +38,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Bai03\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Bai03\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAB3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T18:14:50.409Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Bai03\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Bai03\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T18:14:36.783Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Bai03\\Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Bai03\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T18:14:25.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Bai03\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Bai03\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwA0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T18:13:48.332Z",
+              "WhenOpened": "2025-12-10T00:50:03.79Z",
               "EditorCaption": ""
             },
             {
@@ -112,36 +57,21 @@
               "RelativeDocumentMoniker": "Bai03\\Controllers\\AccountController.cs",
               "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Bai03\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABoAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T18:12:15.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T00:49:06.413Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Bai03\\Models\\User.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Models\\User.cs",
-              "RelativeToolTip": "Bai03\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T18:12:00.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Program.cs",
-              "RelativeDocumentMoniker": "Bai03\\Program.cs",
-              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai03\\Program.cs",
-              "RelativeToolTip": "Bai03\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai02\\Program.cs",
+              "RelativeDocumentMoniker": "Bai02\\Program.cs",
+              "ToolTip": "D:\\Work\\Ky7\\Block2\\NET107\\Learning_NET107\\Lab08\\Lab08\\Bai02\\Program.cs",
+              "RelativeToolTip": "Bai02\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T18:10:11.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T00:47:53.863Z"
             }
           ]
         }
