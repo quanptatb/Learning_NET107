@@ -112,10 +112,28 @@ namespace ASM_NET107_TB01758.Controllers
         }
 
         // DUYỆT ĐƠN HÀNG (Staff only)
+        // Trong Controllers/ProductController.cs
+
         public IActionResult ManageOrders()
         {
-            // Lấy các đơn hàng đang chờ duyệt (Status = 1)
-            var dt = _db.GetRecords("SELECT * FROM Carts WHERE Status = 1");
+            // Kiểm tra quyền nhân viên
+            var role = HttpContext.Session.GetString("Role");
+            if (role != "1" && role != "0") return RedirectToAction("Login", "Account");
+
+            // Câu lệnh SQL JOIN 3 bảng để lấy: Mã đơn, Tên khách, Ngày đặt, Tổng tiền
+            string sql = @"
+        SELECT 
+            c.Id, 
+            u.FullName, 
+            c.CreatedDate, 
+            SUM(d.Price * d.Quantity) as Total
+        FROM Carts c
+        JOIN Users u ON c.UserId = u.Id
+        JOIN Cart_Detail d ON c.Id = d.CartId
+        WHERE c.Status = 1
+        GROUP BY c.Id, u.FullName, c.CreatedDate";
+
+            var dt = _db.GetRecords(sql);
             return View(dt);
         }
 
