@@ -1,0 +1,22 @@
+﻿@model ASM_NET107_TB01758.Models.AppUser
+<h2>Thông tin cá nhân</h2>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<form asp-action="UpdateProfile" method="post">
+    <div class="mb-3">
+        <label>Tên đăng nhập (Không thể sửa)</label>
+        <input type="text" class="form-control" value="@Model.Username" readonly />
+    </div>
+    <div class="mb-3">
+        <label>Họ và tên</label>
+        <input asp-for="FullName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>

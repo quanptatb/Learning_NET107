@@ -1,0 +1,25 @@
+﻿@using System.Data
+@model DataTable
+
+<h2>Quản lý đơn hàng (Chờ duyệt)</h2>
+<table class="table">
+    <tr>
+        <th>Mã ĐH</th>
+        <th>Khách hàng</th>
+        <th>Ngày đặt</th>
+        <th>Tổng tiền</th>
+        <th>Hành động</th>
+    </tr>
+    @foreach (DataRow row in Model.Rows)
+    {
+        <tr>
+            <td>@row["Id"]</td>
+            <td>@row["FullName"]</td>
+            <td>@row["CreatedDate"]</td>
+            <td>@string.Format("{0:N0}", row["Total"])</td>
+            <td>
+                <a href="/Product/ApproveOrder/@row["Id"]" class="btn btn-primary btn-sm">Duyệt</a>
+            </td>
+        </tr>
+    }
+</table>
